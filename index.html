@@ -130,18 +130,21 @@ transition:0.3s;
 
 /* RATES */
 .rates{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+display:flex;
+justify-content:space-between;
+gap:20px;
 margin-top:40px;
+flex-wrap:nowrap;
 }
 
 .rate-box{
+flex:1;
 padding:40px;
 border-radius:30px;
 color:white;
 font-weight:700;
-font-size:1.3rem;
+font-size:1.2rem;
+text-align:center;
 }
 
 .rate1{background:#ff4f6d;}
@@ -150,17 +153,22 @@ font-size:1.3rem;
 .rate4{background:#4cc9f0;}
 
 /* FUN FACTS CENTERED */
-.fun{
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
-margin-top:40px;
-font-size:2rem;
-font-weight:800;
-color:#ff4f6d;
-text-align:center;
-}
+<section>
+<h2>Fun Facts</h2>
+
+<div class="fun">
+<div>90% of Brain Development Happens Before Age 5</div>
+<div>Active Play Improves Academic Performance by 20%</div>
+<div>Children in Structured Clubs Build 30% Stronger Social Skills</div>
+</div>
+
+<p class="center-text" style="margin-top:40px;">
+Research shows that consistent structured play improves cognitive development,
+emotional regulation and long-term confidence. Kids clubs provide environments
+where children grow socially, physically and intellectually.
+</p>
+
+</section>
 
 footer{
 background:#4cc9f0;
@@ -203,6 +211,16 @@ nav ul{display:none;}
 <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7');">And Grow</div>
 </div>
 
+<section>
+<h2>About Sam & Ari Kids Club</h2>
+<p class="center-text">
+Sam & Ari Kids Club is a premium developmental space designed to blend structured growth with joyful experiences.
+We believe childhood should be intentional, safe and inspiring.
+Through guided programs, creative exploration and physical development,
+we nurture confident, capable and socially intelligent children.
+</p>
+</section>
+  
 <section>
 <h2>Why Kids Clubs Matter</h2>
 <p class="center-text">
