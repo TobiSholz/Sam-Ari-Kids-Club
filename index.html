@@ -7,138 +7,201 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #333;
-  scroll-behavior: smooth;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#ffffff;
+  color:#333;
+  overflow-x:hidden;
 }
 
 /* NAV */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 60px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-  z-index: 1000;
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  height:90px;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+  z-index:1000;
 }
 
-nav img {
-  height: 80px; /* LOGO INCREASED */
+nav img{
+  height:85px;
+  object-fit:contain;
+  margin-left:10px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 35px;
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+nav ul li a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
 }
 
 /* HERO */
-.hero {
-  margin-top: 110px;
-  height: 85vh;
-  position: relative;
-  overflow: hidden;
+.hero{
+  margin-top:90px;
+  height:90vh;
+  position:relative;
+  overflow:hidden;
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 3.2rem;
-  font-weight: 700;
-  text-align: center;
-  transition: opacity 1s ease-in-out;
-  opacity: 0;
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:3.5rem;
+  font-weight:700;
+  text-align:center;
+  transition:opacity 1s ease-in-out;
+  opacity:0;
 }
 
-.slide.active {
-  opacity: 1;
+.slide.active{
+  opacity:1;
 }
 
 /* SECTIONS */
-section {
-  padding: 100px 60px;
-  text-align: center;
+section{
+  padding:100px 40px;
+  text-align:center;
 }
 
-.light {
-  background: #f8f8f8;
+.light{
+  background:#f9f9f9;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+h2{
+  font-size:2.5rem;
+  margin-bottom:20px;
 }
 
-/* CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.8;
 }
 
-.card {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+/* PROGRAM CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.05);
 }
 
 /* FUN FACTS */
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  font-size: 1.2rem;
-  font-weight: 600;
+.funfacts{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-top:40px;
 }
 
-/* BUTTON */
-.button {
-  background: #ff4f6d;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 30px;
+.fact{
+  font-size:2rem;
+  font-weight:700;
+  color:#ff4f6d;
 }
 
-/* FOOTER */
-footer {
-  background: #4cc9f0;
-  color: white;
-  padding: 30px;
+/* TEAM */
+.team{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.team img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* RATES */
+.rates{
+  margin-top:40px;
+  font-size:1.2rem;
+}
+
+/* REGISTER BUTTON */
+.button{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 40px;
+  background:#ff4f6d;
+  color:white;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.button:hover{
+  background:#ff9f1c;
+}
+
+/* FLOATING SHAPES */
+.shape{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.15;
+  animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-30px);}
+  100%{transform:translateY(0px);}
+}
+
+.shape1{width:150px;height:150px;background:#ff4f6d;top:200px;left:-50px;}
+.shape2{width:200px;height:200px;background:#4cc9f0;bottom:100px;right:-80px;}
+.shape3{width:120px;height:120px;background:#a5e22d;top:600px;right:50px;}
+
+footer{
+  background:#4cc9f0;
+  color:white;
+  padding:30px;
+  text-align:center;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  nav ul { display: none; }
+  nav ul{display:none;}
+  .funfacts{flex-direction:column;}
 }
 </style>
 </head>
 
 <body>
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
 
 <nav>
   <img src="logo.png" alt="Sam & Ari Logo">
@@ -151,108 +214,94 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9');">
-    Sam & Ari Kids Club
-  </div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5');">
-    Learn
-  </div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74');">
-    Have Fun
-  </div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7');">
-    And Grow
-  </div>
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9');">Sam & Ari Kids Club</div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5');">Learn</div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74');">Have Fun</div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7');">And Grow</div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
-  <h2>About The Club</h2>
-  <p>
-    Sam & Ari Kids Club is a vibrant environment designed to nurture confidence,
-    creativity, independence, and meaningful friendships. We believe children
-    thrive in spaces that balance structure with joyful exploration.
-  </p>
+<h2>About the Club</h2>
+<p>
+Sam & Ari Kids Club is a premium children's experience designed to inspire confidence, creativity and character.
+We combine structured development with joyful exploration to create an environment where children feel safe, challenged and excited to grow.
+</p>
 
-  <h2>About The Founder</h2>
-  <p>
-    Founder bio coming soon. (Founder image will be added here.)
-  </p>
+<h2 style="margin-top:80px;">About the Founder</h2>
+<img src="https://via.placeholder.com/400x400" style="margin-top:30px;border-radius:20px;">
+<p style="margin-top:30px;">
+Founder bio coming soon.
+</p>
 
-  <h2>Our Team</h2>
-  <p>
-    Our passionate team of educators and facilitators are committed to guiding
-    every child through safe, engaging and enriching experiences.
-    (Team images will be added here.)
-  </p>
+<h2 style="margin-top:80px;">Our Team</h2>
+<div class="team">
+<img src="https://via.placeholder.com/300x300">
+<img src="https://via.placeholder.com/300x300">
+<img src="https://via.placeholder.com/300x300">
+</div>
 </section>
 
-<!-- PROGRAMS -->
 <section id="programs" class="light">
-  <h2>Our Programs</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Premium Holiday Camps</h3>
-    </div>
-    <div class="card">
-      <h3>Developmental Exercise Classes</h3>
-      <p>Ages 3–12</p>
-    </div>
-    <div class="card">
-      <h3>Weekend Getaways & More</h3>
-    </div>
-  </div>
+<h2>Our Programs</h2>
+<div class="cards">
+<div class="card">
+<h3>Premium Holiday Camps</h3>
+<p>Immersive holiday experiences packed with creativity, movement, team challenges and leadership activities.</p>
+</div>
+<div class="card">
+<h3>Developmental Exercise Classes (Ages 3–12)</h3>
+<p>Age-appropriate physical development sessions that build coordination, strength and confidence.</p>
+</div>
+<div class="card">
+<h3>Weekend Getaways & More</h3>
+<p>Curated weekend adventures designed to build independence, social skills and unforgettable memories.</p>
+</div>
+</div>
 </section>
 
-<!-- RATES -->
 <section id="rates">
-  <h2>Our Rates</h2>
-  <div class="grid">
-    <div class="card">Daily (Holidays)</div>
-    <div class="card">Weekly</div>
-    <div class="card">Monthly</div>
-    <div class="card">Yearly Membership</div>
-  </div>
+<h2>Our Rates</h2>
+<div class="rates">
+<p>Daily (Holidays) –</p>
+<p>Weekly –</p>
+<p>Monthly –</p>
+<p>Yearly Membership –</p>
+<p style="margin-top:20px;"><strong>Open Hours:</strong> 9am – 4pm</p>
+</div>
 </section>
 
-<!-- FUN FACTS -->
-<section class="light">
-  <h2>Fun Facts</h2>
-  <div class="facts">
-    <div>🎨 Creative Exploration</div>
-    <div>🤝 Social Development</div>
-    <div>🏃 Active Play</div>
-    <div>🌱 Confidence Building</div>
-  </div>
-
-  <p style="margin-top:40px;">
-    Children learn best through guided play. Structured activities combined with
-    social interaction help build emotional intelligence, resilience, and lifelong skills.
-  </p>
+<section id="register" class="light">
+<h2>Register Now</h2>
+<p>Click below to complete our registration form.</p>
+<a href="#" class="button">Google Doc Registration Link</a>
 </section>
 
-<!-- REGISTER -->
-<section id="register">
-  <h2>Register Now</h2>
-  <p>Click below to complete registration.</p>
-  <a href="#" class="button">Open Registration Form</a>
-  <p style="margin-top:20px;">Open Hours: 9am – 4pm</p>
+<section>
+<h2>Fun Facts</h2>
+<div class="funfacts">
+<div class="fact">100+ Happy Kids</div>
+<div class="fact">10+ Activities</div>
+<div class="fact">Safe & Structured</div>
+</div>
+<p style="margin-top:40px;">
+Play builds neural connections, strengthens social intelligence and enhances problem solving skills.
+At Sam & Ari Kids Club, fun is intentional and growth is measurable.
+</p>
 </section>
 
 <footer>
-  © 2026 Sam & Ari Kids Club
+© 2026 Sam & Ari Kids Club
 </footer>
 
 <script>
-let slides = document.querySelectorAll('.slide');
-let current = 0;
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 3000);
+let slides=document.querySelectorAll('.slide');
+let current=0;
+setInterval(()=>{
+slides[current].classList.remove('active');
+current=(current+1)%slides.length;
+slides[current].classList.add('active');
+},3000);
 </script>
 
 </body>
