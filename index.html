@@ -32,7 +32,6 @@ z-index:1000;
 
 nav img{
 height:115px;
-margin-left:5px;
 }
 
 nav ul{
@@ -53,7 +52,6 @@ font-weight:600;
 display:none;
 font-size:30px;
 cursor:pointer;
-margin-right:20px;
 }
 
 @media(max-width:900px){
@@ -66,9 +64,9 @@ right:0;
 background:white;
 width:200px;
 padding:20px;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
-nav ul.show{
+nav ul.active{
 display:flex;
 }
 .menu-toggle{
@@ -100,36 +98,17 @@ text-align:center;
 opacity:0;
 transition:opacity 1s;
 }
-
 .slide.active{opacity:1}
 
-/* FLOATING SHAPES */
-.shape{
-position:absolute;
-border-radius:50%;
-opacity:0.18;
-animation:float 7s infinite ease-in-out;
-}
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-30px)}
-100%{transform:translateY(0)}
-}
-
-.s1{width:200px;height:200px;background:#ff4f6d;top:250px;left:-100px;}
-.s2{width:260px;height:260px;background:#4cc9f0;bottom:200px;right:-120px;}
-.s3{width:120px;height:120px;background:#a5e22d;top:700px;right:100px;}
-.s4{width:100px;height:100px;background:#ff9f1c;top:1000px;left:200px;}
-.s5{width:160px;height:160px;background:#ff4f6d;bottom:400px;left:50px;}
-
+/* SECTIONS */
 section{
 padding:100px 60px;
 }
 
 h2{
+text-align:center;
 font-size:2.8rem;
 margin-bottom:30px;
-text-align:center;
 }
 
 .center-text{
@@ -139,7 +118,19 @@ text-align:center;
 line-height:1.8;
 }
 
-/* PROGRAM CARDS */
+/* FUN FACTS */
+.fun{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+font-weight:700;
+color:#ff4f6d;
+margin-bottom:40px;
+text-align:center;
+}
+
+/* PROGRAMS */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -156,76 +147,62 @@ transition:0.3s;
 }
 .card:hover{transform:translateY(-10px);}
 
-/* RATES WITH ANIMATION */
+/* RATES */
 .rates{
 display:flex;
 justify-content:space-between;
 gap:20px;
 margin-top:40px;
+flex-wrap:nowrap;
 }
 
 .rate-box{
 flex:1;
-padding:30px;
-border-radius:30px;
+background:#ff4f6d;
 color:white;
-font-weight:700;
-font-size:1.2rem;
+border-radius:30px;
+padding:30px;
 text-align:center;
-position:relative;
 cursor:pointer;
+position:relative;
 overflow:hidden;
+transition:0.3s;
 }
 
-.rate-price{
-position:absolute;
-left:0;
-right:0;
-bottom:-100%;
-background:rgba(0,0,0,0.2);
-padding:20px;
-transition:0.4s;
-font-weight:800;
+.rate-box:nth-child(2){background:#ff9f1c;}
+.rate-box:nth-child(3){background:#a5e22d;color:#333;}
+.rate-box:nth-child(4){background:#4cc9f0;}
+
+.price{
+max-height:0;
+overflow:hidden;
+transition:max-height 0.5s ease;
+margin-top:15px;
+font-weight:600;
 }
 
-.rate-box:hover .rate-price{
-bottom:0;
+.rate-box:hover .price{
+max-height:100px;
 }
 
-.rate-box.active .rate-price{
-bottom:0;
+.rate-box.active .price{
+max-height:100px;
 }
 
-.rate1{background:#ff4f6d;}
-.rate2{background:#ff9f1c;}
-.rate3{background:#a5e22d;color:#333;}
-.rate4{background:#4cc9f0;}
-
-@media(max-width:900px){
-.rates{flex-wrap:wrap;}
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:40px;
 }
 
-/* FUN FACTS HORIZONTAL */
-.fun{
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
-margin-bottom:40px;
-font-size:1.3rem;
-font-weight:700;
-color:#ff4f6d;
-text-align:center;
+.gallery img{
+width:100%;
+border-radius:25px;
 }
 
-/* REGISTER SECTION */
-.register{
-text-align:center;
-background:#f9f9f9;
-padding:80px 20px;
-border-radius:40px;
-}
-
+/* REGISTER */
 .button{
 display:inline-block;
 margin-top:30px;
@@ -237,6 +214,7 @@ text-decoration:none;
 font-weight:700;
 }
 
+/* CONTACT */
 footer{
 background:#4cc9f0;
 color:white;
@@ -247,12 +225,6 @@ text-align:center;
 </head>
 
 <body>
-
-<div class="shape s1"></div>
-<div class="shape s2"></div>
-<div class="shape s3"></div>
-<div class="shape s4"></div>
-<div class="shape s5"></div>
 
 <nav>
 <img src="logo.png">
@@ -276,49 +248,77 @@ text-align:center;
 <section>
 <h2>Fun Facts</h2>
 <div class="fun">
-<div>90% of Brain Development Happens Before Age 5</div>
-<div>Active Play Improves Academic Performance by 20%</div>
-<div>Structured Programs Boost Social Skills by 30%</div>
+<div>90% Brain Development Before Age 5</div>
+<div>20% Academic Boost from Active Play</div>
+<div>30% Stronger Social Skills in Clubs</div>
 </div>
 <p class="center-text">
-Research consistently shows that structured play environments improve cognitive flexibility,
-emotional regulation and long-term confidence.
+Research shows structured play environments significantly improve emotional intelligence,
+problem solving ability and long-term confidence.
 </p>
+</section>
+
+<section id="programs">
+<h2>Our Programs</h2>
+<div class="cards">
+<div class="card">
+<h3>Premium Holiday Camps</h3>
+<p>Immersive seasonal experiences blending creativity, leadership, sports and structured development.</p>
+</div>
+<div class="card">
+<h3>Developmental Exercise Classes (Ages 3–12)</h3>
+<p>Specialised movement sessions designed to build coordination and confidence.</p>
+</div>
+<div class="card">
+<h3>Weekend Getaways & More</h3>
+<p>Curated mini-adventures that nurture independence and teamwork.</p>
+</div>
+</div>
 </section>
 
 <section id="rates">
 <h2>Our Rates</h2>
 <div class="rates">
-<div class="rate-box rate1" onclick="toggleRate(this)">
+<div class="rate-box" onclick="togglePrice(this)">
 Daily (Holidays)
-<div class="rate-price">₦15,000</div>
+<div class="price">₦15,000 per day</div>
 </div>
-<div class="rate-box rate2" onclick="toggleRate(this)">
+<div class="rate-box" onclick="togglePrice(this)">
 Weekly
-<div class="rate-price">₦60,000</div>
+<div class="price">₦65,000 per week</div>
 </div>
-<div class="rate-box rate3" onclick="toggleRate(this)">
+<div class="rate-box" onclick="togglePrice(this)">
 Monthly
-<div class="rate-price">₦200,000</div>
+<div class="price">₦220,000 per month</div>
 </div>
-<div class="rate-box rate4" onclick="toggleRate(this)">
+<div class="rate-box" onclick="togglePrice(this)">
 Yearly Membership
-<div class="rate-price">₦2,000,000</div>
+<div class="price">₦2,000,000 per year</div>
 </div>
 </div>
 <p style="text-align:center;margin-top:40px;font-weight:600;">Open Hours: 9am – 4pm</p>
 </section>
 
-<section class="register">
+<section>
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://picsum.photos/400?random=1">
+<img src="https://picsum.photos/400?random=2">
+<img src="https://picsum.photos/400?random=3">
+<img src="https://picsum.photos/400?random=4">
+</div>
+</section>
+
+<section>
 <h2>Register Now</h2>
-<p>Click below to complete our registration form.</p>
-<a href="#" class="button">Google Registration Form</a>
+<p class="center-text">Click below to complete our registration form.</p>
+<a href="#" class="button">Google Registration Link</a>
 </section>
 
 <section id="contact">
 <h2>Contact Us</h2>
-<p style="text-align:center;">Email: hello@samandariclub.com</p>
-<p style="text-align:center;">Phone: +234 800 123 4567</p>
+<p class="center-text">Email: hello@samandariclub.com</p>
+<p class="center-text">Phone: +234 800 123 4567</p>
 </section>
 
 <footer>
@@ -335,10 +335,10 @@ slides[current].classList.add('active');
 },3000);
 
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("show");
+document.getElementById("menu").classList.toggle("active");
 }
 
-function toggleRate(element){
+function togglePrice(element){
 element.classList.toggle("active");
 }
 </script>
