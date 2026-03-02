@@ -294,6 +294,18 @@ gap:15px;
 margin-top:30px;
 }
 
+  @media(max-width:600px){
+.gallery-preview{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.gallery-preview img{
+height:120px;
+object-fit:cover;
+}
+}
+  
 .gallery-preview img{
 width:100%;
 border-radius:20px;
@@ -441,10 +453,10 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 <section>
 <h2>Gallery Highlights</h2>
 <div class="gallery-preview">
-<img src="https://picsum.photos/400?random=1">
-<img src="https://picsum.photos/400?random=2">
-<img src="https://picsum.photos/400?random=3">
-<img src="https://picsum.photos/400?random=4">
+<img src="https://picsum.photos/400?random=1"openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=2"openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=3"openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=4"openLightbox(this.src)">
 </div>
 <div class="view-more">
 <a href="gallery.html">View More →</a>
@@ -479,5 +491,37 @@ el.classList.toggle("active");
 }
 </script>
 
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:30000;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+}
+  
 </body>
+<div class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+  
 </html>
+
+<script>
+function openLightbox(src){
+document.getElementById("lightbox-img").src = src;
+document.querySelector(".lightbox").style.display="flex";
+}
+
+function closeLightbox(){
+document.querySelector(".lightbox").style.display="none";
+}
+</script>
