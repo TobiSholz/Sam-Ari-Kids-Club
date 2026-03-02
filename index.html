@@ -12,8 +12,9 @@
 .floating-shape{
 position:fixed;
 border-radius:50%;
-opacity:0.18;
-z-index:-1;
+opacity:0.15;
+z-index:0;  /* changed from -1 */
+pointer-events:none;
 animation:floatMove 10s infinite ease-in-out;
 }
 
@@ -158,10 +159,8 @@ nav ul.active{display:flex;}
 
 /* HERO */
 .hero{
-margin-top:110px;
-height:85vh;
 position:relative;
-overflow:hidden;
+z-index:1;
 }
 
 .slide{
@@ -394,8 +393,12 @@ coordination and long-term confidence.
 <div class="rate-box rate4" onclick="togglePrice(this)">Yearly<div class="price">₦2,000,000</div></div>
 </div>
 
-<p style="text-align:center;margin-top:30px;font-weight:600;">Open Hours: 9am – 4pm</p>
-
+<p style="text-align:center;margin-top:40px;margin-bottom:80px;font-weight:600;">
+Open Hours: 9am – 4pm
+</p>
+  
+<h2 style="margin-top:60px;">Fun Facts</h2>
+  
 <div class="fun">
 <div>90% Brain Development Before Age 5</div>
 <div>20% Academic Boost from Active Play</div>
