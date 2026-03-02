@@ -7,47 +7,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-margin:0;
 font-family:'Poppins',sans-serif;
 background:#ffffff;
 color:#222;
 overflow-x:hidden;
+animation:fadeIn 1s ease forwards;
+opacity:0;
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
 }
 
 /* ================= NAVIGATION ================= */
+
 nav{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-height:110px;
+height:150px; /* larger for bigger logo */
 background:white;
 display:flex;
 align-items:center;
-justify-content:space-between; /* 👈 critical */
-padding:0 30px;
+justify-content:space-between;
+padding:0 40px;
 box-shadow:0 3px 20px rgba(0,0,0,0.05);
 z-index:10000;
 }
 
 nav img{
-height:95px;
+height:135px; /* larger logo */
 flex-shrink:0;
 }
 
-/* DESKTOP MENU */
 nav ul{
 list-style:none;
 display:flex;
 gap:35px;
-margin:0;
-padding:0;
 align-items:center;
-white-space:nowrap;
 }
 
 nav ul li a{
@@ -56,22 +57,23 @@ color:#333;
 font-weight:600;
 }
 
-/* MOBILE TOGGLE */
 .menu-toggle{
 display:none;
 font-size:32px;
 cursor:pointer;
 }
 
-/* MOBILE MENU */
+/* Mobile */
+
 @media(max-width:900px){
+
 nav{
-height:80px;
+height:100px;
 padding:0 20px;
 }
 
 nav img{
-height:65px;
+height:85px;
 }
 
 .menu-toggle{
@@ -82,10 +84,10 @@ nav ul{
 display:none;
 flex-direction:column;
 position:absolute;
-top:80px;
+top:100px;
 right:0;
 background:white;
-width:220px;
+width:230px;
 padding:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 z-index:10001;
@@ -94,12 +96,14 @@ z-index:10001;
 nav ul.active{
 display:flex;
 }
+
 }
 
 /* ================= HERO ================= */
+
 .hero{
-margin-top:110px;
-height:85vh;
+margin-top:150px;
+height:90vh;
 position:relative;
 overflow:hidden;
 z-index:1;
@@ -125,11 +129,7 @@ transition:opacity 1s ease;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.35),
-rgba(0,0,0,0.55)
-);
+background:linear-gradient(to bottom,rgba(0,0,0,0.35),rgba(0,0,0,0.6));
 }
 
 .slide span{
@@ -142,12 +142,13 @@ opacity:1;
 }
 
 /* ================= FLOATING SHAPES ================= */
+
 .floating-shape{
 position:fixed;
 border-radius:50%;
-opacity:0.22;
+opacity:0.18;
 pointer-events:none;
-z-index:0; /* 👈 visible behind content */
+z-index:0;
 animation:floatMove 10s infinite ease-in-out;
 }
 
@@ -160,25 +161,26 @@ animation:floatMove 10s infinite ease-in-out;
 .shape1{width:300px;height:300px;background:#ff4f6d;top:220px;left:-150px;}
 .shape2{width:380px;height:380px;background:#4cc9f0;bottom:150px;right:-200px;}
 .shape3{width:200px;height:200px;background:#a5e22d;top:900px;right:120px;}
-.shape4{width:150px;height:150px;background:#ff9f1c;top:1400px;left:160px;}
+.shape4{width:150px;height:150px;background:#ff9f1c;top:1500px;left:160px;}
 
 @media(max-width:600px){
-.shape1{width:160px;height:160px;}
-.shape2{width:200px;height:200px;}
+.shape1{width:150px;height:150px;}
+.shape2{width:180px;height:180px;}
 .shape3{width:120px;height:120px;}
 .shape4{width:90px;height:90px;}
 }
 
 /* ================= SECTIONS ================= */
+
 section{
-padding:80px 60px;
+padding:90px 60px;
 position:relative;
 z-index:2;
 }
 
 h2{
 text-align:center;
-font-size:2.4rem;
+font-size:2.5rem;
 margin-bottom:30px;
 }
 
@@ -190,6 +192,7 @@ line-height:1.8;
 }
 
 /* ================= PROGRAMS ================= */
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -209,6 +212,7 @@ transform:translateY(-8px);
 }
 
 /* ================= RATES ================= */
+
 .rates{
 display:flex;
 gap:15px;
@@ -243,6 +247,7 @@ max-height:100px;
 }
 
 /* ================= FUN FACTS ================= */
+
 .fun{
 display:flex;
 justify-content:center;
@@ -254,24 +259,39 @@ margin-top:40px;
 text-align:center;
 }
 
-/* ================= GALLERY ================= */
-.gallery{
+/* ================= GALLERY PREVIEW ================= */
+
+.gallery-preview{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
+margin-top:30px;
 }
 
-.gallery img{
+.gallery-preview img{
 width:100%;
 border-radius:20px;
-transition:transform 0.4s ease;
+transition:0.4s;
 }
 
-.gallery img:hover{
+.gallery-preview img:hover{
 transform:scale(1.05);
 }
 
+.view-more{
+text-align:center;
+margin-top:30px;
+}
+
+.view-more a{
+text-decoration:none;
+font-weight:700;
+color:#ff4f6d;
+font-size:1.2rem;
+}
+
 /* ================= REGISTER ================= */
+
 .register-section{
 text-align:center;
 }
@@ -288,6 +308,7 @@ font-weight:700;
 }
 
 /* ================= FOOTER ================= */
+
 footer{
 background:#4cc9f0;
 color:white;
@@ -295,10 +316,11 @@ padding:35px;
 text-align:center;
 }
 
-/* MOBILE REFINEMENT */
+/* MOBILE STACKING */
+
 @media(max-width:600px){
 section{padding:60px 25px;}
-.hero{height:65vh;margin-top:80px;}
+.hero{height:65vh;margin-top:100px;}
 .slide{font-size:2.2rem;}
 .rates{flex-direction:column;}
 .rate-box{flex:1 1 100%;}
@@ -315,11 +337,12 @@ section{padding:60px 25px;}
 <div class="floating-shape shape4"></div>
 
 <nav>
-<img src="logo.png" alt="Sam & Ari Kids Club">
+<img src="logo.png" alt="Sam & Ari Logo">
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <ul id="menu">
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
+<li><a href="gallery.html">Gallery</a></li>
 <li><a href="#programs">Programs</a></li>
 <li><a href="#rates">Rates</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -390,12 +413,15 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 </section>
 
 <section>
-<h2>Gallery</h2>
-<div class="gallery">
+<h2>Gallery Highlights</h2>
+<div class="gallery-preview">
 <img src="https://picsum.photos/400?random=1">
 <img src="https://picsum.photos/400?random=2">
 <img src="https://picsum.photos/400?random=3">
 <img src="https://picsum.photos/400?random=4">
+</div>
+<div class="view-more">
+<a href="gallery.html">View More →</a>
 </div>
 </section>
 
