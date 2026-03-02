@@ -7,20 +7,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* LOADER */
+.loader{
+position:fixed;
+inset:0;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:20000;
+animation:loaderFade 1s ease forwards;
+animation-delay:2s;
+}
+
+.loader img{
+width:120px;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+@keyframes loaderFade{
+to{opacity:0;visibility:hidden;}
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
+<div class="loader">
+  <img src="logo.png" alt="Loading Logo">
+</div>
+  
 font-family:'Poppins',sans-serif;
 background:#ffffff;
 color:#222;
 overflow-x:hidden;
-animation:fadeIn 1s ease forwards;
-opacity:0;
 }
 
-@keyframes fadeIn{
-to{opacity:1;}
-}
 
 /* ================= NAVIGATION ================= */
 
