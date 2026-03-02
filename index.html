@@ -13,6 +13,7 @@ font-family:'Poppins',sans-serif;
 background:white;
 color:#222;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 /* NAVIGATION */
@@ -62,16 +63,12 @@ position:absolute;
 top:120px;
 right:0;
 background:white;
-width:200px;
+width:220px;
 padding:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
-nav ul.active{
-display:flex;
-}
-.menu-toggle{
-display:block;
-}
+nav ul.active{display:flex;}
+.menu-toggle{display:block;}
 }
 
 /* HERO */
@@ -98,11 +95,54 @@ text-align:center;
 opacity:0;
 transition:opacity 1s;
 }
+
+.slide::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4));
+top:0;
+left:0;
+}
+
+.slide span{
+position:relative;
+z-index:2;
+}
+
 .slide.active{opacity:1}
+
+/* FLOATING SHAPES */
+.shape{
+position:absolute;
+border-radius:50%;
+opacity:0.15;
+animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-30px)}
+100%{transform:translateY(0)}
+}
+
+.s1{width:200px;height:200px;background:#ff4f6d;top:250px;left:-100px;}
+.s2{width:260px;height:260px;background:#4cc9f0;bottom:200px;right:-120px;}
+.s3{width:120px;height:120px;background:#a5e22d;top:800px;right:100px;}
+.s4{width:100px;height:100px;background:#ff9f1c;top:1400px;left:200px;}
 
 /* SECTIONS */
 section{
 padding:100px 60px;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 h2{
@@ -116,18 +156,6 @@ max-width:900px;
 margin:auto;
 text-align:center;
 line-height:1.8;
-}
-
-/* FUN FACTS */
-.fun{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-font-weight:700;
-color:#ff4f6d;
-margin-bottom:40px;
-text-align:center;
 }
 
 /* PROGRAMS */
@@ -158,20 +186,20 @@ flex-wrap:nowrap;
 
 .rate-box{
 flex:1;
-background:#ff4f6d;
-color:white;
 border-radius:30px;
 padding:30px;
 text-align:center;
 cursor:pointer;
+color:white;
+transition:0.3s;
 position:relative;
 overflow:hidden;
-transition:0.3s;
 }
 
-.rate-box:nth-child(2){background:#ff9f1c;}
-.rate-box:nth-child(3){background:#a5e22d;color:#333;}
-.rate-box:nth-child(4){background:#4cc9f0;}
+.rate1{background:#ff4f6d;}
+.rate2{background:#ff9f1c;}
+.rate3{background:#a5e22d;color:#333;}
+.rate4{background:#4cc9f0;}
 
 .price{
 max-height:0;
@@ -181,12 +209,21 @@ margin-top:15px;
 font-weight:600;
 }
 
-.rate-box:hover .price{
+.rate-box:hover .price,
+.rate-box.active .price{
 max-height:100px;
 }
 
-.rate-box.active .price{
-max-height:100px;
+/* FUN FACTS */
+.fun{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+font-weight:700;
+color:#ff4f6d;
+margin-top:40px;
+text-align:center;
 }
 
 /* GALLERY */
@@ -200,9 +237,18 @@ margin-top:40px;
 .gallery img{
 width:100%;
 border-radius:25px;
+transition:transform 0.5s ease;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
 }
 
 /* REGISTER */
+.register-section{
+text-align:center;
+}
+
 .button{
 display:inline-block;
 margin-top:30px;
@@ -214,7 +260,7 @@ text-decoration:none;
 font-weight:700;
 }
 
-/* CONTACT */
+/* FOOTER */
 footer{
 background:#4cc9f0;
 color:white;
@@ -225,6 +271,11 @@ text-align:center;
 </head>
 
 <body>
+
+<div class="shape s1"></div>
+<div class="shape s2"></div>
+<div class="shape s3"></div>
+<div class="shape s4"></div>
 
 <nav>
 <img src="logo.png">
@@ -239,63 +290,56 @@ text-align:center;
 </nav>
 
 <div class="hero">
-<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9');">Sam & Ari Kids Club</div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5');">Learn</div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74');">Have Fun</div>
-<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7');">And Grow</div>
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9');"><span>Sam & Ari Kids Club</span></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5');"><span>Learn</span></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74');"><span>Have Fun</span></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7');"><span>And Grow</span></div>
 </div>
 
 <section>
-<h2>Fun Facts</h2>
-<div class="fun">
-<div>90% Brain Development Before Age 5</div>
-<div>20% Academic Boost from Active Play</div>
-<div>30% Stronger Social Skills in Clubs</div>
-</div>
+<h2>About Sam & Ari Kids Club</h2>
 <p class="center-text">
-Research shows structured play environments significantly improve emotional intelligence,
-problem solving ability and long-term confidence.
+Sam & Ari Kids Club is a premium developmental space blending structured growth with joyful experiences.
+We nurture confident, socially intelligent and capable children.
+</p>
+</section>
+
+<section>
+<h2>Why Kids Clubs Matter</h2>
+<p class="center-text">
+Structured kids programs improve emotional intelligence, leadership skills,
+coordination and long-term confidence.
 </p>
 </section>
 
 <section id="programs">
 <h2>Our Programs</h2>
 <div class="cards">
-<div class="card">
-<h3>Premium Holiday Camps</h3>
-<p>Immersive seasonal experiences blending creativity, leadership, sports and structured development.</p>
-</div>
-<div class="card">
-<h3>Developmental Exercise Classes (Ages 3–12)</h3>
-<p>Specialised movement sessions designed to build coordination and confidence.</p>
-</div>
-<div class="card">
-<h3>Weekend Getaways & More</h3>
-<p>Curated mini-adventures that nurture independence and teamwork.</p>
-</div>
+<div class="card"><h3>Premium Holiday Camps</h3><p>Immersive seasonal experiences blending creativity and leadership.</p></div>
+<div class="card"><h3>Developmental Exercise Classes (Ages 3–12)</h3><p>Movement sessions building coordination and confidence.</p></div>
+<div class="card"><h3>Weekend Getaways & More</h3><p>Mini-adventures nurturing independence and teamwork.</p></div>
 </div>
 </section>
 
 <section id="rates">
 <h2>Our Rates</h2>
 <div class="rates">
-<div class="rate-box" onclick="togglePrice(this)">
-Daily (Holidays)
-<div class="price">₦15,000 per day</div>
+<div class="rate-box rate1" onclick="togglePrice(this)">Daily<div class="price">₦15,000</div></div>
+<div class="rate-box rate2" onclick="togglePrice(this)">Weekly<div class="price">₦65,000</div></div>
+<div class="rate-box rate3" onclick="togglePrice(this)">Monthly<div class="price">₦220,000</div></div>
+<div class="rate-box rate4" onclick="togglePrice(this)">Yearly<div class="price">₦2,000,000</div></div>
 </div>
-<div class="rate-box" onclick="togglePrice(this)">
-Weekly
-<div class="price">₦65,000 per week</div>
+
+<div class="fun">
+<div>90% Brain Development Before Age 5</div>
+<div>20% Academic Boost from Active Play</div>
+<div>30% Stronger Social Skills in Clubs</div>
 </div>
-<div class="rate-box" onclick="togglePrice(this)">
-Monthly
-<div class="price">₦220,000 per month</div>
-</div>
-<div class="rate-box" onclick="togglePrice(this)">
-Yearly Membership
-<div class="price">₦2,000,000 per year</div>
-</div>
-</div>
+
+<p class="center-text" style="margin-top:30px;">
+Structured play environments significantly improve emotional regulation and cognitive flexibility.
+</p>
+
 <p style="text-align:center;margin-top:40px;font-weight:600;">Open Hours: 9am – 4pm</p>
 </section>
 
@@ -309,7 +353,7 @@ Yearly Membership
 </div>
 </section>
 
-<section>
+<section class="register-section">
 <h2>Register Now</h2>
 <p class="center-text">Click below to complete our registration form.</p>
 <a href="#" class="button">Google Registration Link</a>
@@ -341,6 +385,16 @@ document.getElementById("menu").classList.toggle("active");
 function togglePrice(element){
 element.classList.toggle("active");
 }
+
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const rect=sec.getBoundingClientRect();
+if(rect.top<window.innerHeight-100){
+sec.classList.add("visible");
+}
+});
+});
 </script>
 
 </body>
