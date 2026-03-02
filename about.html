@@ -2,29 +2,117 @@
 <html>
 <head>
 <title>About | Sam & Ari Kids Club</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-body{font-family:'Poppins',sans-serif;margin:0;padding:60px;}
-h1{font-size:3rem;}
-.section{margin-bottom:80px;}
-img{width:300px;border-radius:25px;}
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+padding:80px 40px;
+background:#fdfdfd;
+overflow-x:hidden;
+}
+
+h1{
+text-align:center;
+font-size:3rem;
+margin-bottom:60px;
+}
+
+.section{
+margin-bottom:100px;
+}
+
+.founder, .team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+align-items:center;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+text-align:center;
+}
+
+.card img{
+width:100%;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.shape{
+position:absolute;
+border-radius:50%;
+opacity:0.15;
+animation:float 6s infinite ease-in-out;
+}
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-25px)}
+100%{transform:translateY(0)}
+}
+
+.s1{width:200px;height:200px;background:#ff4f6d;top:100px;left:-100px;}
+.s2{width:150px;height:150px;background:#4cc9f0;bottom:200px;right:-80px;}
+.s3{width:120px;height:120px;background:#a5e22d;top:500px;right:100px;}
 </style>
 </head>
 <body>
 
+<div class="shape s1"></div>
+<div class="shape s2"></div>
+<div class="shape s3"></div>
+
 <h1>About Sam & Ari Kids Club</h1>
 
-<div class="section">
-<h2>About the Founder</h2>
-<img src="https://via.placeholder.com/300x300">
-<p>Founder bio will go here.</p>
+<div class="section founder">
+<div class="card">
+<img src="https://via.placeholder.com/400x400">
+<h2>Amara Bennett</h2>
+<p>
+Founder & Director. Amara is a child development enthusiast with over 10 years experience
+in structured youth programming. She believes childhood should be joyful, intentional and transformative.
+</p>
+</div>
 </div>
 
 <div class="section">
-<h2>Our Team</h2>
+<h2 style="text-align:center;margin-bottom:50px;">Our Team</h2>
+<div class="team">
+<div class="card">
 <img src="https://via.placeholder.com/300x300">
+<h3>Liam Carter</h3>
+<p>Sports & Movement Coach</p>
+</div>
+<div class="card">
 <img src="https://via.placeholder.com/300x300">
-<p>Our passionate team is dedicated to child development and safety.</p>
+<h3>Olivia Grant</h3>
+<p>Creative Arts Lead</p>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x300">
+<h3>Ethan Brooks</h3>
+<p>STEM Instructor</p>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x300">
+<h3>Sophia Reed</h3>
+<p>Child Development Specialist</p>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x300">
+<h3>Noah James</h3>
+<p>Program Coordinator</p>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x300">
+<h3>Ava Morgan</h3>
+<p>Wellness & Safety Officer</p>
+</div>
+</div>
 </div>
 
 </body>
