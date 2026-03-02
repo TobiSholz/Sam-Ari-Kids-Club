@@ -7,6 +7,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+  /* BOLD FLOATING SHAPES */
+.floating-shape{
+position:fixed;
+border-radius:50%;
+opacity:0.18;
+z-index:-1;
+animation:floatMove 10s infinite ease-in-out;
+}
+
+@keyframes floatMove{
+0%{transform:translateY(0px) rotate(0deg);}
+50%{transform:translateY(-40px) rotate(20deg);}
+100%{transform:translateY(0px) rotate(0deg);}
+}
+
+/* Individual Shapes */
+.shape1{
+width:280px;
+height:280px;
+background:#ff4f6d;
+top:200px;
+left:-120px;
+}
+
+.shape2{
+width:350px;
+height:350px;
+background:#4cc9f0;
+bottom:150px;
+right:-180px;
+}
+
+.shape3{
+width:180px;
+height:180px;
+background:#a5e22d;
+top:900px;
+right:80px;
+}
+
+.shape4{
+width:140px;
+height:140px;
+background:#ff9f1c;
+top:1400px;
+left:120px;
+}
+
+.shape5{
+width:220px;
+height:220px;
+background:#ff4f6d;
+bottom:400px;
+left:50px;
+}
+
+/* Mobile Adjustments */
+@media(max-width:600px){
+.shape1{width:150px;height:150px;left:-70px;}
+.shape2{width:180px;height:180px;right:-90px;}
+.shape3{width:100px;height:100px;}
+.shape4{width:80px;height:80px;}
+.shape5{width:120px;height:120px;}
+}
+
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
@@ -16,6 +82,15 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
+  <body>
+<div class="floating-shape shape1"></div>
+<div class="floating-shape shape2"></div>
+<div class="floating-shape shape3"></div>
+<div class="floating-shape shape4"></div>
+<div class="floating-shape shape5"></div>
+
+<nav>
+  
 /* NAVIGATION */
 nav{
 position:fixed;
@@ -26,19 +101,19 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 15px;
-height:120px;
+height:110px;
 box-shadow:0 3px 20px rgba(0,0,0,0.05);
 z-index:1000;
 }
 
 nav img{
-height:115px;
+height:100px;
 }
 
 nav ul{
 list-style:none;
 display:flex;
-gap:40px;
+gap:30px;
 margin-right:20px;
 }
 
@@ -56,11 +131,17 @@ cursor:pointer;
 }
 
 @media(max-width:900px){
+nav{
+height:80px;
+}
+nav img{
+height:70px;
+}
 nav ul{
 display:none;
 flex-direction:column;
 position:absolute;
-top:120px;
+top:80px;
 right:0;
 background:white;
 width:220px;
@@ -73,8 +154,8 @@ nav ul.active{display:flex;}
 
 /* HERO */
 .hero{
-margin-top:120px;
-height:90vh;
+margin-top:110px;
+height:85vh;
 position:relative;
 overflow:hidden;
 }
@@ -89,11 +170,12 @@ display:flex;
 justify-content:center;
 align-items:center;
 color:white;
-font-size:4rem;
+font-size:3.5rem;
 font-weight:800;
 text-align:center;
 opacity:0;
 transition:opacity 1s;
+padding:0 20px;
 }
 
 .slide::after{
@@ -101,7 +183,7 @@ content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.4));
+background:linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.5));
 top:0;
 left:0;
 }
@@ -113,28 +195,9 @@ z-index:2;
 
 .slide.active{opacity:1}
 
-/* FLOATING SHAPES */
-.shape{
-position:absolute;
-border-radius:50%;
-opacity:0.15;
-animation:float 8s infinite ease-in-out;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-30px)}
-100%{transform:translateY(0)}
-}
-
-.s1{width:200px;height:200px;background:#ff4f6d;top:250px;left:-100px;}
-.s2{width:260px;height:260px;background:#4cc9f0;bottom:200px;right:-120px;}
-.s3{width:120px;height:120px;background:#a5e22d;top:800px;right:100px;}
-.s4{width:100px;height:100px;background:#ff9f1c;top:1400px;left:200px;}
-
 /* SECTIONS */
 section{
-padding:100px 60px;
+padding:80px 60px;
 opacity:0;
 transform:translateY(40px);
 transition:all 1s ease;
@@ -147,7 +210,7 @@ transform:translateY(0);
 
 h2{
 text-align:center;
-font-size:2.8rem;
+font-size:2.4rem;
 margin-bottom:30px;
 }
 
@@ -161,39 +224,35 @@ line-height:1.8;
 /* PROGRAMS */
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
-margin-top:40px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .card{
 background:white;
-padding:40px;
+padding:35px;
 border-radius:25px;
 box-shadow:0 20px 50px rgba(0,0,0,0.06);
 transition:0.3s;
 }
-.card:hover{transform:translateY(-10px);}
+.card:hover{transform:translateY(-8px);}
 
 /* RATES */
 .rates{
 display:flex;
 justify-content:space-between;
-gap:20px;
-margin-top:40px;
-flex-wrap:nowrap;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .rate-box{
-flex:1;
-border-radius:30px;
-padding:30px;
+flex:1 1 22%;
+border-radius:25px;
+padding:25px;
 text-align:center;
 cursor:pointer;
 color:white;
 transition:0.3s;
-position:relative;
-overflow:hidden;
 }
 
 .rate1{background:#ff4f6d;}
@@ -205,7 +264,7 @@ overflow:hidden;
 max-height:0;
 overflow:hidden;
 transition:max-height 0.5s ease;
-margin-top:15px;
+margin-top:12px;
 font-weight:600;
 }
 
@@ -218,41 +277,38 @@ max-height:100px;
 .fun{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:25px;
 flex-wrap:wrap;
 font-weight:700;
 color:#ff4f6d;
-margin-top:40px;
+margin-top:30px;
 text-align:center;
 }
 
 /* GALLERY */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:40px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 }
 
 .gallery img{
 width:100%;
-border-radius:25px;
-transition:transform 0.5s ease;
+border-radius:20px;
+transition:transform 0.4s ease;
 }
-
 .gallery img:hover{
-transform:scale(1.08);
+transform:scale(1.05);
 }
 
 /* REGISTER */
 .register-section{
 text-align:center;
 }
-
 .button{
 display:inline-block;
-margin-top:30px;
-padding:18px 45px;
+margin-top:25px;
+padding:15px 40px;
 background:#ff4f6d;
 color:white;
 border-radius:40px;
@@ -264,18 +320,22 @@ font-weight:700;
 footer{
 background:#4cc9f0;
 color:white;
-padding:40px;
+padding:35px;
 text-align:center;
+}
+
+/* EXTRA MOBILE REFINEMENT */
+@media(max-width:600px){
+section{padding:60px 25px;}
+.hero{height:65vh;margin-top:80px;}
+.slide{font-size:2.2rem;}
+.rates{flex-direction:column;}
+.rate-box{flex:1 1 100%;}
 }
 </style>
 </head>
 
 <body>
-
-<div class="shape s1"></div>
-<div class="shape s2"></div>
-<div class="shape s3"></div>
-<div class="shape s4"></div>
 
 <nav>
 <img src="logo.png">
@@ -299,15 +359,15 @@ text-align:center;
 <section>
 <h2>About Sam & Ari Kids Club</h2>
 <p class="center-text">
-Sam & Ari Kids Club is a premium developmental space blending structured growth with joyful experiences.
-We nurture confident, socially intelligent and capable children.
+Sam & Ari Kids Club blends structured growth with joyful experiences,
+nurturing confident and socially intelligent children.
 </p>
 </section>
 
 <section>
 <h2>Why Kids Clubs Matter</h2>
 <p class="center-text">
-Structured kids programs improve emotional intelligence, leadership skills,
+Structured programs strengthen emotional intelligence, leadership skills,
 coordination and long-term confidence.
 </p>
 </section>
@@ -330,17 +390,19 @@ coordination and long-term confidence.
 <div class="rate-box rate4" onclick="togglePrice(this)">Yearly<div class="price">₦2,000,000</div></div>
 </div>
 
+<p style="text-align:center;margin-top:30px;font-weight:600;">Open Hours: 9am – 4pm</p>
+
 <div class="fun">
 <div>90% Brain Development Before Age 5</div>
 <div>20% Academic Boost from Active Play</div>
 <div>30% Stronger Social Skills in Clubs</div>
 </div>
+</section>
 
-<p class="center-text" style="margin-top:30px;">
-Structured play environments significantly improve emotional regulation and cognitive flexibility.
-</p>
-
-<p style="text-align:center;margin-top:40px;font-weight:600;">Open Hours: 9am – 4pm</p>
+<section class="register-section">
+<h2>Register Now</h2>
+<p class="center-text">Click below to complete our registration form.</p>
+<a href="#" class="button">Google Registration Link</a>
 </section>
 
 <section>
@@ -351,12 +413,6 @@ Structured play environments significantly improve emotional regulation and cogn
 <img src="https://picsum.photos/400?random=3">
 <img src="https://picsum.photos/400?random=4">
 </div>
-</section>
-
-<section class="register-section">
-<h2>Register Now</h2>
-<p class="center-text">Click below to complete our registration form.</p>
-<a href="#" class="button">Google Registration Link</a>
 </section>
 
 <section id="contact">
