@@ -37,10 +37,6 @@ to{opacity:0;visibility:hidden;}
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-<div class="loader">
-  <img src="logo.png" alt="Loading Logo">
-</div>
-  
 font-family:'Poppins', sans-serif;
 background:#ffffff;
 color:#222;
@@ -183,6 +179,10 @@ z-index:2;
 opacity:1;
 }
 
+<div class="loader">
+  <img src="logo.png" alt="Loading Logo">
+</div>
+  
 /* ================= FLOATING SHAPES ================= */
 
 .floating-shape{
@@ -469,10 +469,10 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 <section>
 <h2>Gallery Highlights</h2>
 <div class="gallery-preview">
-<img src="https://picsum.photos/400?random=1"openLightbox(this.src)">
-<img src="https://picsum.photos/400?random=2"openLightbox(this.src)">
-<img src="https://picsum.photos/400?random=3"openLightbox(this.src)">
-<img src="https://picsum.photos/400?random=4"openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=1" onclick="openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=2" onclick="openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=3" onclick="openLightbox(this.src)">
+<img src="https://picsum.photos/400?random=4" onclick="openLightbox(this.src)">
 </div>
 <div class="view-more">
 <a href="gallery.html">View More →</a>
@@ -507,10 +507,11 @@ el.classList.toggle("active");
 }
 </script>
 
-</body>
 <div class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
+  
+</body>
   
 </html>
 
