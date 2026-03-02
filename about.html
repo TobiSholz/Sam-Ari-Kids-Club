@@ -1,31 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Sam & Ari Kids Club</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 body{
-font-family:'Poppins',sans-serif;
 margin:0;
-padding:80px 40px;
+font-family:'Poppins',sans-serif;
 background:#fdfdfd;
 overflow-x:hidden;
+color:#222;
+padding:80px 40px;
 }
+
+/* FLOATING SHAPES */
+.shape{
+position:absolute;
+border-radius:50%;
+opacity:0.18;
+animation:float 7s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-25px)}
+100%{transform:translateY(0)}
+}
+
+.s1{width:220px;height:220px;background:#ff4f6d;top:100px;left:-120px;}
+.s2{width:180px;height:180px;background:#4cc9f0;bottom:150px;right:-100px;}
+.s3{width:120px;height:120px;background:#a5e22d;top:500px;right:80px;}
+.s4{width:90px;height:90px;background:#ff9f1c;bottom:400px;left:120px;}
 
 h1{
 text-align:center;
 font-size:3rem;
-margin-bottom:60px;
+margin-bottom:80px;
+font-weight:800;
 }
 
 .section{
-margin-bottom:100px;
+margin-bottom:120px;
 }
 
-.founder, .team{
+.founder{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:40px;
+grid-template-columns:1fr 1fr;
+gap:60px;
 align-items:center;
 }
 
@@ -33,85 +57,122 @@ align-items:center;
 background:white;
 padding:30px;
 border-radius:30px;
-box-shadow:0 15px 40px rgba(0,0,0,0.06);
+box-shadow:0 20px 50px rgba(0,0,0,0.06);
 text-align:center;
 }
 
 .card img{
 width:100%;
-border-radius:20px;
+border-radius:25px;
 margin-bottom:20px;
 }
 
-.shape{
-position:absolute;
-border-radius:50%;
-opacity:0.15;
-animation:float 6s infinite ease-in-out;
-}
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-25px)}
-100%{transform:translateY(0)}
+/* TEAM GRID */
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+margin-top:40px;
 }
 
-.s1{width:200px;height:200px;background:#ff4f6d;top:100px;left:-100px;}
-.s2{width:150px;height:150px;background:#4cc9f0;bottom:200px;right:-80px;}
-.s3{width:120px;height:120px;background:#a5e22d;top:500px;right:100px;}
+h2{
+font-size:2.2rem;
+margin-bottom:40px;
+text-align:center;
+}
+
+p{
+line-height:1.8;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.founder{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
+
 <body>
 
 <div class="shape s1"></div>
 <div class="shape s2"></div>
 <div class="shape s3"></div>
+<div class="shape s4"></div>
 
 <h1>About Sam & Ari Kids Club</h1>
 
-<div class="section founder">
+<!-- FOUNDER SECTION -->
+<div class="section">
+<h2>About the Founder</h2>
+
+<div class="founder">
+
 <div class="card">
-<img src="https://via.placeholder.com/400x400">
-<h2>Amara Bennett</h2>
+<img src="https://picsum.photos/500?random=11">
+</div>
+
+<div>
+<h3 style="font-size:1.8rem;">Amara Bennett</h3>
 <p>
-Founder & Director. Amara is a child development enthusiast with over 10 years experience
-in structured youth programming. She believes childhood should be joyful, intentional and transformative.
+Amara Bennett is the visionary founder of Sam & Ari Kids Club.
+With over a decade of experience in youth development and structured programming,
+she created the club to combine intentional growth with joyful childhood experiences.
 </p>
+
+<p>
+Her philosophy is simple: children thrive when creativity,
+movement and leadership development are nurtured together.
+Sam & Ari was built to be safe, structured and inspiring.
+</p>
+</div>
+
 </div>
 </div>
 
+<!-- TEAM SECTION -->
 <div class="section">
-<h2 style="text-align:center;margin-bottom:50px;">Our Team</h2>
+<h2>Our Team</h2>
+
 <div class="team">
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=21">
 <h3>Liam Carter</h3>
-<p>Sports & Movement Coach</p>
+<p>Sports & Movement Coach focused on strength, coordination and discipline.</p>
 </div>
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=22">
 <h3>Olivia Grant</h3>
-<p>Creative Arts Lead</p>
+<p>Creative Arts Lead passionate about imagination and storytelling.</p>
 </div>
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=23">
 <h3>Ethan Brooks</h3>
-<p>STEM Instructor</p>
+<p>STEM Instructor guiding hands-on discovery and problem solving.</p>
 </div>
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=24">
 <h3>Sophia Reed</h3>
-<p>Child Development Specialist</p>
+<p>Child Development Specialist supporting emotional growth.</p>
 </div>
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=25">
 <h3>Noah James</h3>
-<p>Program Coordinator</p>
+<p>Program Coordinator ensuring structure and safety.</p>
 </div>
+
 <div class="card">
-<img src="https://via.placeholder.com/300x300">
+<img src="https://picsum.photos/300?random=26">
 <h3>Ava Morgan</h3>
-<p>Wellness & Safety Officer</p>
+<p>Wellness & Safety Officer dedicated to supervision and care.</p>
 </div>
+
 </div>
 </div>
 
