@@ -7,111 +7,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-  /* BOLD FLOATING SHAPES */
-.floating-shape{
-position:fixed;
-border-radius:50%;
-opacity:0.15;
-z-index:0;  /* changed from -1 */
-pointer-events:none;
-animation:floatMove 10s infinite ease-in-out;
-}
-
-@keyframes floatMove{
-0%{transform:translateY(0px) rotate(0deg);}
-50%{transform:translateY(-40px) rotate(20deg);}
-100%{transform:translateY(0px) rotate(0deg);}
-}
-
-/* Individual Shapes */
-.shape1{
-width:280px;
-height:280px;
-background:#ff4f6d;
-top:200px;
-left:-120px;
-}
-
-.shape2{
-width:350px;
-height:350px;
-background:#4cc9f0;
-bottom:150px;
-right:-180px;
-}
-
-.shape3{
-width:180px;
-height:180px;
-background:#a5e22d;
-top:900px;
-right:80px;
-}
-
-.shape4{
-width:140px;
-height:140px;
-background:#ff9f1c;
-top:1400px;
-left:120px;
-}
-
-.shape5{
-width:220px;
-height:220px;
-background:#ff4f6d;
-bottom:400px;
-left:50px;
-}
-
-/* Mobile Adjustments */
-@media(max-width:600px){
-.shape1{width:150px;height:150px;left:-70px;}
-.shape2{width:180px;height:180px;right:-90px;}
-.shape3{width:100px;height:100px;}
-.shape4{width:80px;height:80px;}
-.shape5{width:120px;height:120px;}
-}
+/* RESET */
+*{box-sizing:border-box;}
 
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:white;
+background:#ffffff;
 color:#222;
 overflow-x:hidden;
-scroll-behavior:smooth;
 }
 
-  <body>
-<div class="floating-shape shape1"></div>
-<div class="floating-shape shape2"></div>
-<div class="floating-shape shape3"></div>
-<div class="floating-shape shape4"></div>
-<div class="floating-shape shape5"></div>
-
-<nav>
-  
-/* NAVIGATION */
+/* ================= NAVIGATION ================= */
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
+height:110px;
 background:white;
 display:flex;
 align-items:center;
-justify-content:space-between;
-padding:0 25px;
-height:110px;
+justify-content:space-between; /* 👈 critical */
+padding:0 30px;
 box-shadow:0 3px 20px rgba(0,0,0,0.05);
-z-index:9999;
+z-index:10000;
 }
 
 nav img{
-height:100px;
+height:95px;
 flex-shrink:0;
 }
 
+/* DESKTOP MENU */
 nav ul{
 list-style:none;
 display:flex;
@@ -119,6 +47,7 @@ gap:35px;
 margin:0;
 padding:0;
 align-items:center;
+white-space:nowrap;
 }
 
 nav ul li a{
@@ -127,20 +56,28 @@ color:#333;
 font-weight:600;
 }
 
-/* MOBILE MENU */
+/* MOBILE TOGGLE */
 .menu-toggle{
 display:none;
-font-size:30px;
+font-size:32px;
 cursor:pointer;
 }
 
+/* MOBILE MENU */
 @media(max-width:900px){
 nav{
 height:80px;
+padding:0 20px;
 }
+
 nav img{
-height:70px;
+height:65px;
 }
+
+.menu-toggle{
+display:block;
+}
+
 nav ul{
 display:none;
 flex-direction:column;
@@ -150,23 +87,27 @@ right:0;
 background:white;
 width:220px;
 padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-z-index:10000;
-}
-nav ul.active{display:flex;}
-.menu-toggle{display:block;}
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+z-index:10001;
 }
 
-/* HERO */
+nav ul.active{
+display:flex;
+}
+}
+
+/* ================= HERO ================= */
 .hero{
+margin-top:110px;
+height:85vh;
 position:relative;
+overflow:hidden;
 z-index:1;
 }
 
 .slide{
 position:absolute;
-width:100%;
-height:100%;
+inset:0;
 background-size:cover;
 background-position:center;
 display:flex;
@@ -177,18 +118,18 @@ font-size:3.5rem;
 font-weight:800;
 text-align:center;
 opacity:0;
-transition:opacity 1s;
-padding:0 20px;
+transition:opacity 1s ease;
 }
 
 .slide::after{
 content:"";
 position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.5));
-top:0;
-left:0;
+inset:0;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.35),
+rgba(0,0,0,0.55)
+);
 }
 
 .slide span{
@@ -196,19 +137,43 @@ position:relative;
 z-index:2;
 }
 
-.slide.active{opacity:1}
-
-/* SECTIONS */
-section{
-padding:80px 60px;
-opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
+.slide.active{
+opacity:1;
 }
 
-section.visible{
-opacity:1;
-transform:translateY(0);
+/* ================= FLOATING SHAPES ================= */
+.floating-shape{
+position:fixed;
+border-radius:50%;
+opacity:0.22;
+pointer-events:none;
+z-index:0; /* 👈 visible behind content */
+animation:floatMove 10s infinite ease-in-out;
+}
+
+@keyframes floatMove{
+0%{transform:translateY(0);}
+50%{transform:translateY(-40px);}
+100%{transform:translateY(0);}
+}
+
+.shape1{width:300px;height:300px;background:#ff4f6d;top:220px;left:-150px;}
+.shape2{width:380px;height:380px;background:#4cc9f0;bottom:150px;right:-200px;}
+.shape3{width:200px;height:200px;background:#a5e22d;top:900px;right:120px;}
+.shape4{width:150px;height:150px;background:#ff9f1c;top:1400px;left:160px;}
+
+@media(max-width:600px){
+.shape1{width:160px;height:160px;}
+.shape2{width:200px;height:200px;}
+.shape3{width:120px;height:120px;}
+.shape4{width:90px;height:90px;}
+}
+
+/* ================= SECTIONS ================= */
+section{
+padding:80px 60px;
+position:relative;
+z-index:2;
 }
 
 h2{
@@ -224,7 +189,7 @@ text-align:center;
 line-height:1.8;
 }
 
-/* PROGRAMS */
+/* ================= PROGRAMS ================= */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -238,12 +203,14 @@ border-radius:25px;
 box-shadow:0 20px 50px rgba(0,0,0,0.06);
 transition:0.3s;
 }
-.card:hover{transform:translateY(-8px);}
 
-/* RATES */
+.card:hover{
+transform:translateY(-8px);
+}
+
+/* ================= RATES ================= */
 .rates{
 display:flex;
-justify-content:space-between;
 gap:15px;
 flex-wrap:wrap;
 }
@@ -255,7 +222,6 @@ padding:25px;
 text-align:center;
 cursor:pointer;
 color:white;
-transition:0.3s;
 }
 
 .rate1{background:#ff4f6d;}
@@ -276,7 +242,7 @@ font-weight:600;
 max-height:100px;
 }
 
-/* FUN FACTS */
+/* ================= FUN FACTS ================= */
 .fun{
 display:flex;
 justify-content:center;
@@ -284,11 +250,11 @@ gap:25px;
 flex-wrap:wrap;
 font-weight:700;
 color:#ff4f6d;
-margin-top:30px;
+margin-top:40px;
 text-align:center;
 }
 
-/* GALLERY */
+/* ================= GALLERY ================= */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -300,14 +266,16 @@ width:100%;
 border-radius:20px;
 transition:transform 0.4s ease;
 }
+
 .gallery img:hover{
 transform:scale(1.05);
 }
 
-/* REGISTER */
+/* ================= REGISTER ================= */
 .register-section{
 text-align:center;
 }
+
 .button{
 display:inline-block;
 margin-top:25px;
@@ -319,7 +287,7 @@ text-decoration:none;
 font-weight:700;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
 background:#4cc9f0;
 color:white;
@@ -327,7 +295,7 @@ padding:35px;
 text-align:center;
 }
 
-/* EXTRA MOBILE REFINEMENT */
+/* MOBILE REFINEMENT */
 @media(max-width:600px){
 section{padding:60px 25px;}
 .hero{height:65vh;margin-top:80px;}
@@ -340,8 +308,14 @@ section{padding:60px 25px;}
 
 <body>
 
+<!-- FLOATING SHAPES -->
+<div class="floating-shape shape1"></div>
+<div class="floating-shape shape2"></div>
+<div class="floating-shape shape3"></div>
+<div class="floating-shape shape4"></div>
+
 <nav>
-<img src="logo.png">
+<img src="logo.png" alt="Sam & Ari Kids Club">
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <ul id="menu">
 <li><a href="index.html">Home</a></li>
@@ -393,12 +367,9 @@ coordination and long-term confidence.
 <div class="rate-box rate4" onclick="togglePrice(this)">Yearly<div class="price">₦2,000,000</div></div>
 </div>
 
-<p style="text-align:center;margin-top:40px;margin-bottom:80px;font-weight:600;">
-Open Hours: 9am – 4pm
-</p>
-  
-<h2 style="margin-top:60px;">Fun Facts</h2>
-  
+<p class="center-text" style="margin-top:40px;font-weight:600;">Open Hours: 9am – 4pm</p>
+
+<h2 style="margin-top:80px;">Fun Facts</h2>
 <div class="fun">
 <div>90% Brain Development Before Age 5</div>
 <div>20% Academic Boost from Active Play</div>
@@ -410,7 +381,6 @@ Structured play environments significantly improve emotional regulation,
 cognitive flexibility and long-term confidence.
 Kids clubs provide the balance of discipline and joy that supports whole-child development.
 </p>
-  
 </section>
 
 <section class="register-section">
@@ -452,19 +422,9 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-function togglePrice(element){
-element.classList.toggle("active");
+function togglePrice(el){
+el.classList.toggle("active");
 }
-
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-const rect=sec.getBoundingClientRect();
-if(rect.top<window.innerHeight-100){
-sec.classList.add("visible");
-}
-});
-});
 </script>
 
 </body>
