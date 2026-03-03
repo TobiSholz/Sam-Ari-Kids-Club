@@ -17,6 +17,64 @@ opacity:0;
 
 @keyframes fadeIn{to{opacity:1;}}
 
+/* NAVIGATION */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:150px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+box-shadow:0 3px 20px rgba(0,0,0,0.05);
+z-index:10000;
+}
+
+nav img{
+height:120px;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:35px;
+align-items:center;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+.menu-toggle{
+display:none;
+font-size:32px;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+nav{height:100px;padding:0 20px;}
+nav img{height:80px;}
+nav ul{
+display:none;
+flex-direction:column;
+position:absolute;
+top:100px;
+right:0;
+background:white;
+width:220px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+nav ul.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+
 /* BACK ARROW */
 .back{
 padding:20px;
@@ -94,6 +152,17 @@ transition:0.4s;
 <a href="index.html">← Back to Home</a>
 </div>
 
+<nav>
+  <img src="logo.png" alt="Sam & Ari Logo">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+  
 <h1>Our Gallery</h1>
 
 <div class="gallery">
@@ -111,6 +180,12 @@ transition:0.4s;
 <img src="https://picsum.photos/500?random=22"onclick="openLightbox(this.src)">>
 </div>
 
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+</script>
+  
 </body>
 <div class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
