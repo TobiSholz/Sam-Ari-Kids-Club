@@ -42,7 +42,15 @@ background:#ffffff;
 color:#222;
 overflow-x:hidden;
 }
+  
+body{
+cursor:crosshair;
+}
 
+a:hover{
+cursor:pointer;
+color:#ff4f6d;
+}
 
 /* ================= NAVIGATION ================= */
 
@@ -60,6 +68,16 @@ padding:0 40px;
 box-shadow:0 3px 20px rgba(0,0,0,0.05);
 z-index:10000;
 }
+
+nav{
+animation:slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-100%);}
+to{transform:translateY(0);}
+}
+  
 
 nav img{
 height:135px; /* larger logo */
@@ -414,16 +432,22 @@ section{padding:60px 25px;}
 <section>
 <h2>About Sam & Ari Kids Club</h2>
 <p class="center-text">
-Sam & Ari Kids Club blends structured growth with joyful experiences,
-nurturing confident and socially intelligent children.
+Sam & Ari Kids Club is a structured enrichment environment designed to nurture
+confidence, creativity, social intelligence and leadership in children.
+Through premium holiday camps, developmental exercise classes and immersive
+weekend experiences, we combine safety, structure and joy to cultivate well-rounded growth.
 </p>
 </section>
 
-<section>
-<h2>Why Kids Clubs Matter</h2>
-<p class="center-text">
-Structured programs strengthen emotional intelligence, leadership skills,
-coordination and long-term confidence.
+<section style="background:url('https://images.unsplash.com/photo-1509062522246-3755977927d7') center/cover no-repeat; color:white; text-align:center; padding:120px 60px;">
+<h2 style="color:white;">Why Kids Clubs Matter</h2>
+
+<p style="max-width:900px;margin:auto;line-height:1.9;font-size:1.1rem;">
+Children in structured activity programs show stronger emotional regulation,
+improved peer interaction skills, higher academic confidence, and 30% better
+problem-solving adaptability compared to children without enrichment exposure.
+Kids clubs create safe, guided environments where play becomes leadership,
+creativity becomes discipline, and fun becomes growth.
 </p>
 </section>
 
