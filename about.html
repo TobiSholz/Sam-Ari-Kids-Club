@@ -8,6 +8,18 @@
 <link rel="stylesheet" href="styles.css">
   
 <style>
+.page-content{
+margin-top:180px;
+padding:0 40px;
+}
+
+@media(max-width:900px){
+.page-content{
+margin-top:140px;
+padding:0 20px;
+}
+}
+
 .back-arrow{
 padding:20px 40px;
 position:relative;
@@ -25,14 +37,13 @@ font-size:1.2rem;
 .back-arrow{
 padding:20px;
 }
-}
+
 body{  
 margin:0;
 font-family:'Poppins',sans-serif;
 background:#fdfdfd;
 overflow-x:hidden;
 color:#222;
-padding:80px 40px;
 }
 
 /* MOBILE */
@@ -51,6 +62,8 @@ grid-template-columns:1fr;
 <div class="shape s3"></div>
 <div class="shape s4"></div>
 
+<div class="page-content">
+  
 <h1>About Sam & Ari Kids Club</h1>
 
 <!-- ABOUT THE CLUB -->
@@ -138,6 +151,7 @@ Sam & Ari was built to be safe, structured and inspiring.
 </div>
 
 </div>
+  
 </div>
 
 <script>
@@ -147,7 +161,17 @@ document.getElementById("menu").classList.toggle("active");
 </script>
   
 </body>
-<div class="back-arrow">
+<nav>
+  <img src="logo.png" alt="Sam & Ari Logo">
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  
+  <div class="back-arrow">
   <a href="index.html">← Back to Home</a>
 </div>
   
