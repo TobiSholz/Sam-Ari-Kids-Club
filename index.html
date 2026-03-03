@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sam & Ari Kids Club</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="styles.css">
+  
 <style>
 /* LOADER */
 .loader{
@@ -50,93 +51,6 @@ cursor:crosshair;
 a:hover{
 cursor:pointer;
 color:#ff4f6d;
-}
-
-/* ================= NAVIGATION ================= */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:150px; /* larger for bigger logo */
-background:white;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 40px;
-box-shadow:0 3px 20px rgba(0,0,0,0.05);
-z-index:10000;
-}
-
-nav{
-animation:slideDown 0.8s ease forwards;
-}
-
-@keyframes slideDown{
-from{transform:translateY(-100%);}
-to{transform:translateY(0);}
-}
-  
-
-nav img{
-height:135px; /* larger logo */
-flex-shrink:0;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:35px;
-align-items:center;
-}
-
-nav ul li a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-.menu-toggle{
-display:none;
-font-size:32px;
-cursor:pointer;
-}
-
-/* Mobile */
-
-@media(max-width:900px){
-
-nav{
-height:100px;
-padding:0 20px;
-}
-
-nav img{
-height:85px;
-}
-
-.menu-toggle{
-display:block;
-}
-
-nav ul{
-display:none;
-flex-direction:column;
-position:absolute;
-top:100px;
-right:0;
-background:white;
-width:230px;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-z-index:10001;
-}
-
-nav ul.active{
-display:flex;
-}
-
 }
   
 /* LIGHTBOX */
@@ -195,36 +109,6 @@ z-index:2;
 
 .slide.active{
 opacity:1;
-}
-
-  
-/* ================= FLOATING SHAPES ================= */
-
-.floating-shape{
-position:fixed;
-border-radius:50%;
-opacity:0.22;
-pointer-events:none;
-z-index:1;
-animation:floatMove 10s infinite ease-in-out;
-}
-
-@keyframes floatMove{
-0%{transform:translateY(0);}
-50%{transform:translateY(-40px);}
-100%{transform:translateY(0);}
-}
-
-.shape1{width:300px;height:300px;background:#ff4f6d;top:220px;left:-150px;}
-.shape2{width:380px;height:380px;background:#4cc9f0;bottom:150px;right:-200px;}
-.shape3{width:200px;height:200px;background:#a5e22d;top:900px;right:120px;}
-.shape4{width:150px;height:150px;background:#ff9f1c;top:1500px;left:160px;}
-
-@media(max-width:600px){
-.shape1{width:150px;height:150px;}
-.shape2{width:180px;height:180px;}
-.shape3{width:120px;height:120px;}
-.shape4{width:90px;height:90px;}
 }
 
 /* ================= SECTIONS ================= */
