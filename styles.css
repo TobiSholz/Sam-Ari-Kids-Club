@@ -81,10 +81,10 @@ nav ul.active{display:flex;}
 .floating-shape{
 position:fixed;
 border-radius:50%;
-opacity:0.25;
+opacity:0.18;
 pointer-events:none;
-z-index:1;
-animation:floatMove 10s infinite ease-in-out;
+z-index:0;
+animation:floatMove 12s infinite ease-in-out;
 }
 
 @keyframes floatMove{
@@ -110,7 +110,7 @@ animation:floatMove 10s infinite ease-in-out;
 section{
 padding:90px 60px;
 position:relative;
-z-index:3;
+z-index:2;
 }
 
 @media(max-width:600px){
