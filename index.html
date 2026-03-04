@@ -212,12 +212,12 @@ margin-top:30px;
 
   @media(max-width:600px){
 .gallery-preview{
-grid-template-columns:repeat(2,1fr);
-gap:10px;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
 }
 
 .gallery-preview img{
-height:120px;
+height:160px;
 object-fit:cover;
 }
 }
@@ -278,6 +278,7 @@ section{padding:60px 25px;}
 .slide{font-size:2.2rem;}
 .rates{flex-direction:column;}
 .rate-box{flex:1 1 100%;}
+.why-section{padding:80px 30px;text-align:left;}
 }
 </style>
 </head>
@@ -295,7 +296,8 @@ section{padding:60px 25px;}
 <div class="floating-shape shape4"></div>
 
 <nav>
-<img src="logo.png" alt="Sam & Ari Logo">
+<nav>
+<a href="index.html"><img src="logo.png"></a></nav>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <ul id="menu">
 <li><a href="index.html">Home</a></li>
@@ -328,7 +330,7 @@ weekend experiences, we combine safety, structure and joy to cultivate well-roun
 </section>
 
 <section style="background:url('https://images.unsplash.com/photo-1509062522246-3755977927d7') center/cover no-repeat; color:white; text-align:center; padding:120px 60px;">
-<h2 style="color:white;">Why Kids Clubs Matter</h2>
+<h2 class="why-section"> style="color:white;">Why Kids Clubs Matter</h2>
 
 <p style="max-width:900px;margin:auto;line-height:1.9;font-size:1.1rem;">
 Children in structured activity programs show stronger emotional regulation,
