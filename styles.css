@@ -224,3 +224,13 @@ transition:all 0.8s ease;
 opacity:1;
 transform:translateY(0);
 }
+
+/* Cursor improvement */
+
+body{
+cursor:default;
+}
+
+a, button{
+cursor:pointer;
+}
