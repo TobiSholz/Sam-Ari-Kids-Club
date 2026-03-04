@@ -288,7 +288,6 @@ section{padding:60px 25px;}
 <div class="floating-shape shape4"></div>
 
 <nav>
-<nav>
 <a href="index.html"><img src="logo.png" alt="Sam & Ari Logo"></a>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <ul id="menu">
@@ -322,7 +321,7 @@ weekend experiences, we combine safety, structure and joy to cultivate well-roun
 </section>
 
 <section style="background:url('https://images.unsplash.com/photo-1509062522246-3755977927d7') center/cover no-repeat; color:white; text-align:center; padding:120px 60px;">
-<h2 class="why-section"> style="color:white;">Why Kids Clubs Matter</h2>
+<h2 class="why-section" style="color:white;">Why Kids Clubs Matter</h2>
 
 <p style="max-width:900px;margin:auto;line-height:1.9;font-size:1.1rem;">
 Children in structured activity programs show stronger emotional regulation,
@@ -368,7 +367,7 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 </p>
 </section>
 
-<section class="register-section" reveal">
+<section class="register-section reveal">
 <h2>Register Now</h2>
 <p class="center-text">Click below to complete our registration form.</p>
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXZNwRLTuu8ryW6sqkFLOsC4oDEEzQoKFZYwm2MgZFgLzo1w/viewform?usp=publish-editor" 
@@ -395,7 +394,7 @@ Register for Easter Event →
 
 <section>
 <h2>Gallery Highlights</h2>
-<div class="reveal">
+<div class="gallery-preview reveal">
 <img src="https://picsum.photos/400?random=1" onclick="openLightbox(this.src)">
 <img src="https://picsum.photos/400?random=2" onclick="openLightbox(this.src)">
 <img src="https://picsum.photos/400?random=3" onclick="openLightbox(this.src)">
@@ -483,16 +482,16 @@ el.classList.add("active");
 window.addEventListener("scroll", revealOnScroll);
 
 </script>
-  
-</body>
-  
-</html>
 
 <script>
 function openLightbox(src){
 document.getElementById("lightbox-img").src = src;
 document.querySelector(".lightbox").style.display="flex";
 }
+  
+</body>
+  
+</html>
 
 function closeLightbox(){
 document.querySelector(".lightbox").style.display="none";
