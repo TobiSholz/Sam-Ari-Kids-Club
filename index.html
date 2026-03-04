@@ -283,7 +283,7 @@ section{padding:60px 25px;}
 
 <body>
 
-<div class="loader">
+<div class="reveal">
   <img src="logo.png" alt="Loading Logo">
 </div>
   
@@ -335,7 +335,7 @@ creativity becomes discipline, and fun becomes growth.
 </p>
 </section>
 
-<section id="programs">
+<section id="programs" class="reveal">
 <h2>Our Programs</h2>
 <div class="cards">
 <div class="card"><h3>Premium Holiday Camps</h3><p>Immersive seasonal experiences blending creativity and leadership.</p></div>
@@ -344,7 +344,7 @@ creativity becomes discipline, and fun becomes growth.
 </div>
 </section>
 
-<section id="rates">
+<section id="rates" class="reveal">
 <h2>Our Rates</h2>
 <div class="rates">
 <div class="rate-box rate1" onclick="togglePrice(this)">Daily<div class="price">₦15,000</div></div>
@@ -369,7 +369,7 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 </p>
 </section>
 
-<section class="register-section">
+<section class="register-section" reveal">
 <h2>Register Now</h2>
 <p class="center-text">Click below to complete our registration form.</p>
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXZNwRLTuu8ryW6sqkFLOsC4oDEEzQoKFZYwm2MgZFgLzo1w/viewform?usp=publish-editor" 
@@ -381,7 +381,7 @@ Kids clubs provide the balance of discipline and joy that supports whole-child d
 
 <section>
 <h2>Gallery Highlights</h2>
-<div class="gallery-preview">
+<div class="reveal">
 <img src="https://picsum.photos/400?random=1" onclick="openLightbox(this.src)">
 <img src="https://picsum.photos/400?random=2" onclick="openLightbox(this.src)">
 <img src="https://picsum.photos/400?random=3" onclick="openLightbox(this.src)">
@@ -450,6 +450,25 @@ el.classList.toggle("active");
 <div class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
+
+  <script>
+
+function revealOnScroll(){
+const reveals = document.querySelectorAll(".reveal");
+
+reveals.forEach((el)=>{
+const windowHeight = window.innerHeight;
+const elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+el.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+</script>
   
 </body>
   
