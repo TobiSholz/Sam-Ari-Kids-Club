@@ -149,6 +149,73 @@ line-height:1.6;
 color:#555;
 }
 
+/* HOLIDAY POPUP */
+.popup-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:50000;
+opacity:0;
+visibility:hidden;
+transition:0.4s ease;
+}
+
+.popup-overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+.popup-box{
+background:white;
+padding:40px;
+border-radius:25px;
+max-width:420px;
+width:90%;
+text-align:center;
+box-shadow:0 40px 80px rgba(0,0,0,0.25);
+position:relative;
+animation:popupScale 0.5s ease;
+}
+
+@keyframes popupScale{
+from{transform:scale(0.8);}
+to{transform:scale(1);}
+}
+
+.popup-box h2{
+margin-bottom:15px;
+}
+
+.popup-box p{
+margin-bottom:25px;
+line-height:1.6;
+}
+
+.popup-btn{
+display:inline-block;
+padding:14px 35px;
+background:#ff4f6d;
+color:white;
+border-radius:35px;
+font-weight:700;
+text-decoration:none;
+}
+
+.popup-close{
+position:absolute;
+top:15px;
+right:18px;
+font-size:26px;
+cursor:pointer;
+font-weight:700;
+}
+
 /* FOOTER */
 .main-footer{
 background:#4cc9f0;
