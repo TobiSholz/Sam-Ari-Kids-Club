@@ -515,6 +515,18 @@ document.querySelector(".lightbox").style.display="none";
     </a>
   </div>
 </div>
+
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("holidayPopup").classList.add("active");
+  }, 1500); // popup appears after 1.5s
+});
+
+function closePopup(){
+  document.getElementById("holidayPopup").classList.remove("active");
+}
+</script>
   
 </body>
 </html>
