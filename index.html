@@ -343,18 +343,33 @@ creativity becomes discipline, and fun becomes growth.
 </section>
 
 <section id="rates" class="reveal">
+
 <h2>Our Rates</h2>
+
 <div class="rates">
-<div class="rate-box rate1" onclick="togglePrice(this)">Daily<div class="price">₦15,000</div></div>
-<div class="rate-box rate2" onclick="togglePrice(this)">Weekly<div class="price">₦65,000</div></div>
-<div class="rate-box rate3" onclick="togglePrice(this)">Monthly<div class="price">₦220,000</div></div>
-<div class="rate-box rate4" onclick="togglePrice(this)">Yearly<div class="price">₦2,000,000</div></div>
-<div class="rate-box rate5" onclick="togglePrice(this)">Special Holiday<div class="price">₦45,000</div>
+
+<div class="rate-box rate1" onclick="togglePrice(this)">
+Daily (Holiday Club)
+<div class="price">₦85,000</div>
+</div>
+
+<div class="rate-box rate5" onclick="togglePrice(this)">
+Special Holiday
+<div class="price">₦85,000</div>
+</div>
+
+<div class="rate-box rate2" onclick="toggleMembershipPopup()">
+Yearly Membership
+<div class="price">₦150,000</div>
 </div>
 
 </div>
 
-<p class="center-text" style="margin-top:40px;font-weight:600;">Open Hours: 9am – 4pm</p>
+<p class="center-text" style="margin-top:40px;font-weight:600;">
+Open Hours: 9am – 4pm
+</p>
+
+</section>
 
 <h2 style="margin-top:80px;">Fun Facts</h2>
 <div class="fun">
@@ -499,23 +514,59 @@ document.querySelector(".lightbox").style.display="none";
 
 <!-- HOLIDAY POPUP -->
 <div id="holidayPopup" class="popup-overlay">
-  <div class="popup-box">
-    <span class="popup-close" onclick="closePopup()">×</span>
-    <h2>Holiday Special 🎉</h2>
-    <p>
-      Our special holiday program is now open for registration.
-      Fun, creativity and growth guaranteed!
-    </p>
-    <a 
-      href="https://docs.google.com/forms/d/e/1FAIpQLSdOp8V2Qg7Gy6HPrtNjWc5vDYxw3C2VyYHb1MRaH5pwKCjnUA/viewform?usp=publish-editor"
-      target="_blank"
-      class="popup-btn"
-    >
-      Register for Holiday Event →
-    </a>
-  </div>
+
+<div class="popup-box">
+
+<span class="popup-close" onclick="closePopup()">×</span>
+
+<h2>The Great Easter Eggventure 🐣</h2>
+
+<p>
+Join us this Easter for an exciting adventure filled with games,
+creativity and fun activities for kids.
+
+Easter Saturday & Easter Monday  
+Daily rate: <strong>₦85,000</strong>
+</p>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSdOp8V2Qg7Gy6HPrtNjWc5vDYxw3C2VyYHb1MRaH5pwKCjnUA/viewform?usp=publish-editor"
+target="_blank"
+class="popup-btn">
+
+Register for The Great Easter Eggventure →
+
+</a>
+
+</div>
 </div>
 
+<div id="membershipPopup" class="popup-overlay">
+
+<div class="popup-box">
+
+<span class="popup-close" onclick="closeMembershipPopup()">×</span>
+
+<h2>Register for Membership</h2>
+
+<p>
+Become a <strong>Sam & Ari Kids Club Member</strong> for ₦100,000
+and enjoy exclusive benefits.
+</p>
+
+<ul style="text-align:left; margin-top:15px; line-height:1.8;">
+<li>5% discount off kids packages</li>
+<li>Exclusive events and member-only activities</li>
+<li>Special Sam & Ari Kids Club merchandise</li>
+</ul>
+
+<a href="#" class="popup-btn">
+Register for Membership →
+</a>
+
+</div>
+</div>
+  
 <script>
 window.addEventListener("load", () => {
   setTimeout(() => {
