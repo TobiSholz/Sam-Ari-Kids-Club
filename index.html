@@ -296,6 +296,25 @@ font-size:26px;
 cursor:pointer;
 }
 
+/* EGG INFO POPUP */
+
+.egg-info{
+position:fixed;
+bottom:180px;
+right:40px;
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:320px;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+display:none;
+z-index:50000;
+}
+
+.egg-info.active{
+display:block;
+}
+  
 /* EGG CRACK ANIMATION */
 
 .egg-popup.crack{
@@ -362,35 +381,6 @@ box-shadow:0 30px 70px rgba(0,0,0,0.15);
 font-size:38px;
 margin-bottom:12px;
 }
-
-<!-- EASTER EGG POPUP -->
-
-<div class="egg-popup" id="eggPopup" onclick="toggleEgg()">
-🥚
-</div>
-
-<div class="egg-info" id="eggInfo">
-
-<h3>The Easter Eggventure 🐣</h3>
-
-<p>
-Join us this Easter for a fun filled day of games,
-creative activities and adventure for kids.
-</p>
-
-<p>
-Easter Sunday & Easter Monday  
-<strong>₦85,000 per child</strong>
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank">
-
-Register Now →
-
-</a>
-
-</div>
   
 /* ================= FOOTER ================= */
 
@@ -621,6 +611,35 @@ document.getElementById("eggPopup").style.transform="scale(1)";
 });
 
 </script>
+
+<!-- EASTER EGG POPUP -->
+
+<div class="egg-popup" id="eggPopup" onclick="toggleEgg()">
+🥚
+</div>
+
+<div class="egg-info" id="eggInfo">
+
+<h3>The Easter Eggventure 🐣</h3>
+
+<p>
+Join us this Easter for a fun filled day of games,
+creative activities and adventure for kids.
+</p>
+
+<p>
+Easter Sunday & Easter Monday  
+<strong>₦85,000 per child</strong>
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
+target="_blank">
+
+Register Now →
+
+</a>
+
+</div>
   
 </section>
 
