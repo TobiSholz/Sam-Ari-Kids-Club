@@ -342,6 +342,82 @@ box-shadow:0 30px 70px rgba(0,0,0,0.15);
 font-size:38px;
 margin-bottom:12px;
 }
+
+/* EASTER EGG POPUP */
+
+.egg-popup{
+position:fixed;
+bottom:40px;
+right:40px;
+width:90px;
+height:120px;
+background:linear-gradient(#ff9f1c,#ff4f6d);
+border-radius:50% 50% 45% 45%;
+cursor:pointer;
+z-index:50000;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:700;
+font-size:14px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+transition:transform 0.3s ease;
+}
+
+.egg-popup:hover{
+transform:scale(1.08);
+}
+
+/* CRACK LINE */
+
+.egg-popup:after{
+content:"";
+position:absolute;
+width:80%;
+height:3px;
+background:white;
+top:55%;
+left:10%;
+transform:rotate(-10deg);
+border-radius:5px;
+}
+
+/* HIDDEN INFO PANEL */
+
+.egg-info{
+position:fixed;
+bottom:180px;
+right:40px;
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:320px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+display:none;
+z-index:50000;
+}
+
+.egg-info.active{
+display:block;
+}
+
+.egg-info h3{
+margin-bottom:10px;
+color:#ff4f6d;
+}
+
+.egg-info a{
+display:inline-block;
+margin-top:15px;
+background:#ff4f6d;
+color:white;
+padding:10px 25px;
+border-radius:25px;
+text-decoration:none;
+font-weight:600;
+}
   
 /* ================= FOOTER ================= */
 
@@ -607,28 +683,30 @@ document.querySelector(".lightbox").style.display="none";
 </script>
 
 <!-- HOLIDAY POPUP -->
-<div id="holidayPopup" class="popup-overlay">
+<!-- EASTER EGG EVENT -->
 
-<div class="popup-box">
+<div class="egg-popup" onclick="openEgg()">
+🥚
+</div>
 
-<span class="popup-close" onclick="closePopup()">×</span>
+<div class="egg-info" id="eggInfo">
 
-<h2>The Easter Eggventure 🐣</h2>
+<h3>The Easter Eggventure 🐣</h3>
 
 <p>
 Join us this Easter for an exciting adventure filled with games,
 creativity and fun activities for kids.
-
-Easter Sunday & Easter Monday  
-Daily rate: <strong>₦85,000</strong>
 </p>
 
-<a
-href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank"
-class="popup-btn">
+<p>
+Easter Sunday & Easter Monday  
+<strong>₦85,000 per child</strong>
+</p>
 
-Register for The Easter Eggventure →
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
+target="_blank">
+
+Register Now →
 
 </a>
 
@@ -645,6 +723,14 @@ window.addEventListener("load", () => {
 function closePopup(){
   document.getElementById("holidayPopup").classList.remove("active");
 }
+</script>
+
+<script>
+
+function openEgg(){
+document.getElementById("eggInfo").classList.toggle("active");
+}
+
 </script>
   
 </body>
