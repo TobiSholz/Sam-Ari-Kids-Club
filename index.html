@@ -185,65 +185,57 @@ font-size:38px;
 margin-bottom:12px;
 }
 
-/* EASTER EGG */
+/* HOLIDAY POPUP */
 
-.egg-popup{
+.popup-overlay{
 position:fixed;
-bottom:40px;
-right:40px;
-width:90px;
-height:120px;
-background:linear-gradient(#ff9f1c,#ff4f6d);
-border-radius:50% 50% 45% 45%;
-cursor:pointer;
-z-index:9999;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:40px;
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
-transform:scale(0);
-animation:eggWiggle 4s infinite;
-transition:0.4s;
+z-index:50000;
+opacity:0;
+visibility:hidden;
+transition:0.4s ease;
 }
 
-@keyframes eggWiggle{
-0%{transform:rotate(0deg) scale(1);}
-10%{transform:rotate(-6deg);}
-20%{transform:rotate(6deg);}
-30%{transform:rotate(-4deg);}
-40%{transform:rotate(4deg);}
-50%{transform:rotate(0deg);}
-100%{transform:rotate(0deg);}
+.popup-overlay.active{
+opacity:1;
+visibility:visible;
 }
 
-.egg-popup.crack{
-animation:eggCrack 0.5s forwards;
-}
-
-@keyframes eggCrack{
-0%{transform:rotate(0deg) scale(1);}
-25%{transform:rotate(-10deg) scale(1.05);}
-50%{transform:rotate(10deg) scale(1.1);}
-75%{transform:rotate(-6deg) scale(1.05);}
-100%{transform:scale(0.7);opacity:0;}
-}
-
-.egg-info{
-position:fixed;
-bottom:180px;
-right:40px;
+.popup-box{
 background:white;
-padding:30px;
-border-radius:20px;
-max-width:320px;
-box-shadow:0 25px 60px rgba(0,0,0,0.25);
-display:none;
-z-index:9999;
+padding:40px;
+border-radius:25px;
+max-width:420px;
+width:90%;
+text-align:center;
+box-shadow:0 30px 70px rgba(0,0,0,0.3);
+position:relative;
 }
 
-.egg-info.active{
-display:block;
+.popup-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 35px;
+background:#ff4f6d;
+color:white;
+border-radius:35px;
+text-decoration:none;
+font-weight:700;
+}
+
+.popup-close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:26px;
+cursor:pointer;
 }
 
 /* FOOTER */
@@ -376,27 +368,53 @@ Kids Club Membership
 
 </section>
 
-<!-- EASTER POPUP -->
+<!-- EASTER EVENT POPUP -->
 
-<div class="egg-popup" id="eggPopup" onclick="toggleEgg()">🥚</div>
+<div id="holidayPopup" class="popup-overlay">
 
-<div class="egg-info" id="eggInfo">
+<div class="popup-box">
 
-<h3>The Easter Eggventure 🐣</h3>
+<span class="popup-close" onclick="closePopup()">×</span>
+
+<h2>The Great Easter Eggventure 🐣</h2>
 
 <p>
-Join us this Easter for games, creative activities and adventure.
+Join us this Easter for an exciting adventure filled with games,
+creative activities and fun experiences for kids.
 </p>
 
-<p><strong>₦85,000 per child</strong></p>
+<p>
+Easter Saturday & Easter Monday<br>
+<strong>₦85,000 per child</strong>
+</p>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor" target="_blank">
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
+target="_blank"
+class="popup-btn">
 
-Register Now →
+Register for the Easter Eggventure →
 
 </a>
 
 </div>
+</div>
+
+<script>
+
+window.addEventListener("load", function(){
+
+setTimeout(function(){
+document.getElementById("holidayPopup").classList.add("active");
+},1200);
+
+});
+
+function closePopup(){
+document.getElementById("holidayPopup").classList.remove("active");
+}
+
+</script>
 
 <footer>
 
@@ -442,20 +460,6 @@ egg.style.display="none";
 },400);
 
 }
-
-/* SHOW EGG AFTER PAGE LOAD */
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-document.getElementById("eggPopup").style.transform="scale(1)";
-
-},1200);
-
-});
-
-</script>
 
 </body>
 </html>
