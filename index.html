@@ -238,6 +238,10 @@ max-height:100px;
 
 }
 
+function togglePrice(el){
+el.classList.toggle("active");
+}
+  
 /* ================= FUN FACTS ================= */
 
 .fun{
@@ -469,7 +473,7 @@ Yearly Membership
 Open Hours: 9am – 4pm
 </p>
 
-</section>
+<section>
 
 <h2 style="margin-top:80px;">Fun Facts</h2>
 
@@ -487,6 +491,8 @@ cognitive flexibility and long-term confidence.
 
 Kids clubs provide the balance of discipline and joy that supports whole-child development.
 </p>
+
+</section>
 
 <section class="register-section reveal">
 
@@ -600,40 +606,13 @@ Register for The Easter Eggventure →
 </div>
 
 </footer>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
   
-<!-- HOLIDAY POPUP -->
-
-<h2>The Easter Eggventure 🐣</h2>
-
-<div id="holidayPopup" class="popup-overlay">
-
-<div class="popup-box">
-
-<span class="popup-close" onclick="closePopup()">×</span>
-
-<h2>The Easter Eggventure 🐣</h2>
-
-<p>
-Join us this Easter for an exciting adventure filled with games,
-creativity and fun activities for kids.
-
-Easter Sunday & Easter Monday
-
-Daily rate: <strong>₦85,000</strong>
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank"
-class="popup-btn">
-
-Register for The Easter Eggventure →
-
-</a>
-
-</div>
-
-</div>
-
 <script>
 
 window.addEventListener("load", () => {
@@ -649,12 +628,6 @@ document.getElementById("holidayPopup").classList.add("active");
 function closePopup(){
 document.getElementById("holidayPopup").classList.remove("active");
 }
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
-</div>
   
 </script>
 
