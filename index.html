@@ -564,6 +564,64 @@ Sam & Ari Kids Club Membership
 
 </div>
 
+<!-- EASTER EGG WIDGET -->
+
+<div class="egg-popup" onclick="toggleEgg()">
+🥚
+</div>
+
+<div class="egg-info" id="eggInfo">
+
+<h3>The Easter Eggventure 🐣</h3>
+
+<p>
+Join us this Easter for a fun filled day of games,
+creative activities and adventure for kids.
+</p>
+
+<p>
+Easter Sunday & Easter Monday  
+<strong>₦85,000 per child</strong>
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
+target="_blank">
+
+Register Now →
+
+</a>
+
+</div>
+</div>
+  
+<script>
+
+function toggleEgg(){
+
+const egg = document.getElementById("eggPopup");
+const info = document.getElementById("eggInfo");
+
+egg.classList.add("crack");
+
+setTimeout(()=>{
+info.classList.add("active");
+egg.style.display="none";
+},450);
+
+}
+
+/* SHOW EGG AFTER PAGE LOAD */
+
+window.addEventListener("load", () => {
+
+setTimeout(()=>{
+document.getElementById("eggPopup").style.transform="scale(1)";
+},1200);
+
+});
+
+</script>
+  
 </section>
 
 <footer class="main-footer">
@@ -653,64 +711,6 @@ document.querySelector(".lightbox").style.display="flex";
 function closeLightbox(){
 document.querySelector(".lightbox").style.display="none";
 }
-</script>
-
-<!-- EASTER EGG WIDGET -->
-
-<div class="egg-popup" onclick="toggleEgg()">
-🥚
-</div>
-
-<div class="egg-info" id="eggInfo">
-
-<h3>The Easter Eggventure 🐣</h3>
-
-<p>
-Join us this Easter for a fun filled day of games,
-creative activities and adventure for kids.
-</p>
-
-<p>
-Easter Sunday & Easter Monday  
-<strong>₦85,000 per child</strong>
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank">
-
-Register Now →
-
-</a>
-
-</div>
-</div>
-  
-<script>
-
-function toggleEgg(){
-
-const egg = document.getElementById("eggPopup");
-const info = document.getElementById("eggInfo");
-
-egg.classList.add("crack");
-
-setTimeout(()=>{
-info.classList.add("active");
-egg.style.display="none";
-},450);
-
-}
-
-/* SHOW EGG AFTER PAGE LOAD */
-
-window.addEventListener("load", () => {
-
-setTimeout(()=>{
-document.getElementById("eggPopup").style.transform="scale(1)";
-},1200);
-
-});
-
 </script>
   
 </body>
