@@ -10,99 +10,61 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
-
 <style>
 
-/* LOADER */
-
-.loader{
-position:fixed;
-inset:0;
-background:white;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:20000;
-animation:loaderFade 1s ease forwards;
-animation-delay:2s;
-}
-
-.loader img{
-width:120px;
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
-
-}
-
-@keyframes loaderFade{
-to{opacity:0;visibility:hidden;}
-}
-
 *{
-box-sizing:border-box;
 margin:0;
 padding:0;
+box-sizing:border-box;
 }
 
 body{
-
 font-family:'Poppins', sans-serif;
 background:#ffffff;
 color:#222;
-overflow-x:hidden;
-
 }
 
-a:hover{
+/* NAV */
 
-cursor:pointer;
-color:#ff4f6d;
-
-}
-
-/* LIGHTBOX */
-
-.lightbox{
-
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.8);
-display:none;
-justify-content:center;
+nav{
+display:flex;
+justify-content:space-between;
 align-items:center;
-z-index:30000;
-
+padding:20px 60px;
+position:fixed;
+top:0;
+width:100%;
+background:white;
+z-index:10000;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.lightbox img{
-
-max-width:90%;
-max-height:90%;
-border-radius:20px;
-
+nav img{
+height:60px;
 }
 
-/* ================= HERO ================= */
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#222;
+font-weight:600;
+}
+
+/* HERO */
 
 .hero{
-
-margin-top:150px;
-height:90vh;
+margin-top:100px;
+height:85vh;
 position:relative;
 overflow:hidden;
-z-index:1;
-
 }
 
 .slide{
-
 position:absolute;
 inset:0;
 background-size:cover;
@@ -111,210 +73,200 @@ display:flex;
 justify-content:center;
 align-items:center;
 color:white;
-font-size:3.5rem;
+font-size:3rem;
 font-weight:800;
 text-align:center;
 opacity:0;
 transition:opacity 1s ease;
-
 }
 
 .slide::after{
-
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.35),
-rgba(0,0,0,0.6)
-);
-
+background:rgba(0,0,0,0.45);
 }
 
 .slide span{
-
 position:relative;
 z-index:2;
-
 }
 
 .slide.active{
 opacity:1;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 
 section{
-
 padding:90px 60px;
-position:relative;
-z-index:3;
-
 }
 
 h2{
-
 text-align:center;
-font-size:2.5rem;
-margin-bottom:30px;
-
+font-size:2.4rem;
+margin-bottom:25px;
 }
 
 .center-text{
-
-max-width:900px;
+max-width:850px;
 margin:auto;
 text-align:center;
 line-height:1.8;
-
 }
 
-/* ================= PROGRAMS ================= */
+/* PROGRAMS */
 
 .cards{
-
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
-
+margin-top:40px;
 }
 
 .card{
-
 background:white;
 padding:35px;
 border-radius:25px;
-box-shadow:0 20px 50px rgba(0,0,0,0.06);
+box-shadow:0 20px 40px rgba(0,0,0,0.07);
 transition:0.3s;
-
 }
 
 .card:hover{
 transform:translateY(-8px);
 }
 
-/* ================= RATES ================= */
+/* RATES */
 
 .rates{
-
 display:flex;
-gap:15px;
+gap:20px;
 flex-wrap:wrap;
-
+margin-top:40px;
 }
 
 .rate-box{
-
-flex:1 1 22%;
-min-width:220px;
-border-radius:25px;
+flex:1 1 220px;
 padding:25px;
+border-radius:20px;
 text-align:center;
-cursor:pointer;
 color:white;
-
+cursor:pointer;
 }
 
 .rate1{background:#ff4f6d;}
 .rate2{background:#ff9f1c;}
-.rate3{background:#a5e22d;color:#333;}
-.rate4{background:#4cc9f0;}
-.rate5{background:#8e44ad;color:white;}
+.rate3{background:#8e44ad;}
 
 .price{
-
 max-height:0;
 overflow:hidden;
-transition:max-height 0.5s ease;
+transition:0.4s;
 margin-top:12px;
 font-weight:600;
-
 }
 
-.rate-box:hover .price,
 .rate-box.active .price{
-
-max-height:100px;
-
+max-height:80px;
 }
-  
-/* ================= FUN FACTS ================= */
+
+/* FUN FACTS */
 
 .fun{
-
 display:flex;
 justify-content:center;
-gap:25px;
+gap:20px;
 flex-wrap:wrap;
+margin-top:40px;
 font-weight:700;
 color:#ff4f6d;
-margin-top:40px;
-text-align:center;
-
 }
 
-/* POPUPS */
+/* REGISTER */
+
+.register-options{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.register-card{
+background:white;
+padding:40px;
+border-radius:25px;
+text-decoration:none;
+color:#222;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.register-card:hover{
+transform:translateY(-10px);
+}
+
+.register-icon{
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+/* POPUP */
 
 .popup-overlay{
-
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:rgba(0,0,0,0.6);
 display:flex;
 align-items:center;
 justify-content:center;
-z-index:50000;
 opacity:0;
 visibility:hidden;
-transition:0.4s ease;
-
+transition:0.4s;
+z-index:20000;
 }
 
 .popup-overlay.active{
-
 opacity:1;
 visibility:visible;
-
 }
 
 .popup-box{
-
 background:white;
 padding:40px;
-border-radius:25px;
+border-radius:20px;
 max-width:420px;
-width:90%;
 text-align:center;
-box-shadow:0 30px 70px rgba(0,0,0,0.3);
 position:relative;
-
-}
-
-.popup-btn{
-
-display:inline-block;
-margin-top:20px;
-padding:14px 35px;
-background:#ff4f6d;
-color:white;
-border-radius:35px;
-text-decoration:none;
-font-weight:700;
-
 }
 
 .popup-close{
-
 position:absolute;
-top:15px;
-right:20px;
+top:12px;
+right:18px;
 font-size:26px;
 cursor:pointer;
+}
 
+.popup-btn{
+display:inline-block;
+margin-top:18px;
+background:#ff4f6d;
+color:white;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+padding:60px;
+text-align:center;
+margin-top:60px;
 }
 
 </style>
@@ -322,104 +274,68 @@ cursor:pointer;
 
 <body>
 
-<!-- FLOATING SHAPES -->
-
-<div class="floating-shape shape1"></div>
-<div class="floating-shape shape2"></div>
-<div class="floating-shape shape3"></div>
-<div class="floating-shape shape4"></div>
-
 <nav>
 
-<a href="index.html">
+<img src="logo.png">
 
-<img src="logo.png" alt="Sam & Ari Logo">
-
-</a>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<ul id="menu">
-
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="gallery.html">Gallery</a></li>
+<ul>
+<li><a href="#">Home</a></li>
 <li><a href="#programs">Programs</a></li>
 <li><a href="#rates">Rates</a></li>
-<li><a href="contact.html">Contact</a></li>
-
+<li><a href="#register">Register</a></li>
 </ul>
 
 </nav>
 
-  <div class="hero">
+<!-- HERO -->
 
-<div class="slide active" style="background-image:url('hero1.jpg');">
+<div class="hero">
 
+<div class="slide active" style="background-image:url('hero1.jpg')">
 <span>Sam & Ari Kids Club</span>
-
 </div>
 
-<div class="slide" style="background-image:url('hero2.jpg');">
-
+<div class="slide" style="background-image:url('hero2.jpg')">
 <span>Have Fun</span>
-
 </div>
 
-<div class="slide" style="background-image:url('hero3.jpg');">
-
+<div class="slide" style="background-image:url('hero3.jpg')">
 <span>Learn</span>
-
 </div>
 
-<div class="slide" style="background-image:url('hero4.jpg');">
-
-<span>And Grow</span>
-
+<div class="slide" style="background-image:url('hero4.jpg')">
+<span>Grow</span>
 </div>
 
 </div>
+
+<!-- ABOUT -->
 
 <section>
 
 <h2>About Sam & Ari Kids Club</h2>
 
 <p class="center-text">
-
-Sam & Ari Kids Club is a structured enrichment environment designed to nurture confidence, creativity, social intelligence and leadership in children.
-
-Through premium holiday camps, developmental exercise classes and immersive weekend experiences, we combine safety, structure and joy to cultivate well-rounded growth.
-
+Sam & Ari Kids Club nurtures confidence, creativity and leadership in children through structured play, camps and developmental activities.
 </p>
 
 </section>
-  
-</section>
 
-<section style="
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.55)),
-url('why-kids-club.jpg') center/cover no-repeat;
-color:white;
-text-align:center;
-padding:120px 60px;
-">
+<!-- WHY -->
 
-<h2 class="why-section" style="color:white;">Why Kids Clubs Matter</h2>
+<section style="background:#f6f6f6">
 
-<p style="max-width:900px;margin:auto;line-height:1.9;font-size:1.1rem;">
+<h2>Why Kids Clubs Matter</h2>
 
-Children in structured activity programs show stronger emotional regulation,
-improved peer interaction skills, higher academic confidence, and 30% better
-problem-solving adaptability compared to children without enrichment exposure.
-
-Kids clubs create safe, guided environments where play becomes leadership,
-creativity becomes discipline, and fun becomes growth.
-
+<p class="center-text">
+Children in enrichment programs develop stronger social skills, emotional regulation and academic confidence.
 </p>
+
 </section>
 
-<section id="programs" class="reveal">
+<!-- PROGRAMS -->
+
+<section id="programs">
 
 <h2>Our Programs</h2>
 
@@ -427,224 +343,152 @@ creativity becomes discipline, and fun becomes growth.
 
 <div class="card">
 <h3>Premium Holiday Camps</h3>
-<p>Immersive seasonal experiences blending creativity and leadership.</p>
+<p>Creative camps combining play, leadership and learning.</p>
 </div>
 
 <div class="card">
-<h3>Structured Developmental Classes (Ages 3–10)</h3>
-<p>Movement sessions building coordination and confidence.</p>
+<h3>Structured Development Classes</h3>
+<p>Movement and coordination sessions for ages 3–10.</p>
 </div>
 
 <div class="card">
-<h3>Weekend Getaways & More</h3>
-<p>Mini-adventures nurturing independence and teamwork.</p>
+<h3>Weekend Getaways</h3>
+<p>Mini adventures that build teamwork and confidence.</p>
 </div>
 
 </div>
 
 </section>
 
+<!-- RATES -->
 
-<section id="rates" class="reveal">
+<section id="rates">
 
 <h2>Our Rates</h2>
 
 <div class="rates">
 
 <div class="rate-box rate1" onclick="togglePrice(this)">
-Daily (Holiday Club)
-<div class="price">₦85,000</div>
-</div>
-
-<div class="rate-box rate5" onclick="togglePrice(this)">
-Easter Eggventure
+Daily Holiday Club
 <div class="price">₦85,000</div>
 </div>
 
 <div class="rate-box rate2" onclick="togglePrice(this)">
+Easter Eggventure
+<div class="price">₦85,000</div>
+</div>
+
+<div class="rate-box rate3" onclick="togglePrice(this)">
 Yearly Membership
 <div class="price">₦150,000</div>
 </div>
 
 </div>
 
-<p class="center-text" style="margin-top:40px;font-weight:600;">
-Open Hours: 9am – 4pm
-</p>
-
 </section>
 
+<!-- FUN FACTS -->
 
-<h2 style="margin-top:80px;">Fun Facts</h2>
+<section>
+
+<h2>Fun Facts</h2>
 
 <div class="fun">
 
-<div>90% of the Brain Develops Before the Age of 5</div>
-<div>20% Academic Boost comes from Active Play</div>
-<div>30% of kids clubs help kids develop real-world skills — not just academically</div>
+<div>90% of the Brain Develops Before Age 5</div>
+<div>Active Play Improves Learning</div>
+<div>Kids Clubs Build Real World Skills</div>
 
 </div>
 
-<p class="center-text" style="margin-top:25px;">
-Structured play environments significantly improve emotional regulation,
-cognitive flexibility and long-term confidence.
-
-Kids clubs provide the balance of discipline and joy that supports whole-child development.
-</p>
-
 </section>
-  
-<section class="register-section reveal">
+
+<!-- REGISTER -->
+
+<section id="register">
 
 <h2>Register Now</h2>
 
-<p class="center-text">
-Choose the program you'd like to register your child for.
-</p>
-
 <div class="register-options">
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSf5_7R_j3MMQvM_9AF2diilgav6Gto3rfJwRawWioQtFELdag/viewform?usp=publish-editor"
-target="_blank"
-class="register-card">
-
+<a class="register-card" href="https://docs.google.com/forms/d/e/1FAIpQLSf5_7R_j3MMQvM_9AF2diilgav6Gto3rfJwRawWioQtFELdag/viewform" target="_blank">
 <div class="register-icon">🎨</div>
 Holiday Club Registration
-
 </a>
 
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank"
-class="register-card">
-
+<a class="register-card" href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform" target="_blank">
 <div class="register-icon">🥚</div>
-The Great Easter Eggventure (Special Holiday Event)
-
+Easter Eggventure
 </a>
 
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeRTmQ9d62WbWrDZ2na0Sf-sAQqtw4vcXuf6P0x-Dc3jX_VUQ/viewform?usp=publish-editor"
-target="_blank"
-class="register-card">
-
+<a class="register-card" href="https://docs.google.com/forms/d/e/1FAIpQLSeRTmQ9d62WbWrDZ2na0Sf-sAQqtw4vcXuf6P0x-Dc3jX_VUQ/viewform" target="_blank">
 <div class="register-icon">⭐</div>
-Sam & Ari Kids Club Membership
-
+Kids Club Membership
 </a>
 
 </div>
 
 </section>
 
+<!-- POPUP -->
 
-
-<!-- HOLIDAY POPUP -->
-
-<div id="holidayPopup" class="popup-overlay">
+<div id="popup" class="popup-overlay">
 
 <div class="popup-box">
 
 <span class="popup-close" onclick="closePopup()">×</span>
 
-<h2>The Easter Eggventure 🐣</h2>
+<h2>Easter Eggventure 🐣</h2>
 
-<p>
-Join us this Easter for an exciting adventure filled with games, creativity and fun activities for kids.
+<p>Easter Sunday & Monday<br>Daily Rate ₦85,000</p>
 
-<br><br>
-
-Easter Sunday & Easter Monday
-
-<br><br>
-
-Daily rate: <strong>₦85,000</strong>
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
-target="_blank"
-class="popup-btn">
-
-Register for The Easter Eggventure →
-
+<a class="popup-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform" target="_blank">
+Register
 </a>
 
 </div>
 
 </div>
 
+<footer>
 
-
-<footer class="main-footer">
-
-<div class="footer-grid">
-
-<div class="footer-column">
-<h3>Contact Us</h3>
-<p>Email: samandarikidsclub@gmail.com</p>
-<p>Phone: +234 803 098 8226</p>
-<p>Open Hours: 9am – 4pm</p>
-<a href="contact.html" class="footer-link">Visit Contact Page →</a>
-</div>
-
-
-<div class="footer-column">
-<h3>Newsletter</h3>
-<p>Stay updated on camps, events and new programs.</p>
-
-<form class="newsletter-form">
-<input type="email" placeholder="Enter your email" required>
-<button type="submit">Subscribe</button>
-</form>
-</div>
-
-
-<div class="footer-column">
-<h3>Quick Links</h3>
-<p><a href="about.html">About</a></p>
-<p><a href="gallery.html">Gallery</a></p>
-<p><a href="contact.html">Contact</a></p>
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-© 2026 Sam & Ari Kids Club. All Rights Reserved.
-</div>
+© 2026 Sam & Ari Kids Club
 
 </footer>
 
-
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
-</div>
-
-
-
 <script>
 
-window.addEventListener("load", () => {
+/* HERO SLIDER */
 
-setTimeout(() => {
+let slides=document.querySelectorAll(".slide")
+let index=0
 
-document.getElementById("holidayPopup").classList.add("active");
+setInterval(()=>{
 
-},1500);
+slides[index].classList.remove("active")
+index=(index+1)%slides.length
+slides[index].classList.add("active")
 
-});
+},4000)
 
-
-function closePopup(){
-document.getElementById("holidayPopup").classList.remove("active");
-}
-
+/* PRICE TOGGLE */
 
 function togglePrice(el){
-el.classList.toggle("active");
+el.classList.toggle("active")
+}
+
+/* POPUP */
+
+window.onload=function(){
+
+setTimeout(()=>{
+document.getElementById("popup").classList.add("active")
+},2000)
+
+}
+
+function closePopup(){
+document.getElementById("popup").classList.remove("active")
 }
 
 </script>
