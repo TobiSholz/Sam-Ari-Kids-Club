@@ -40,7 +40,7 @@ box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
 nav img{
-height:60px;
+height:90px;
 }
 
 nav ul{
@@ -169,7 +169,13 @@ font-weight:600;
 .rate-box.active .price{
 max-height:80px;
 }
+  
+.rate-box:hover .price,
+.rate-box.active .price{
 
+max-height:100px;
+
+}
 /* FUN FACTS */
 
 .fun{
@@ -276,16 +282,16 @@ margin-top:60px;
 
 <nav>
 
-<img src="logo.png">
+<ul id="menu">
 
-<ul>
-<li><a href="#">Home</a></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="gallery.html">Gallery</a></li>
 <li><a href="#programs">Programs</a></li>
 <li><a href="#rates">Rates</a></li>
-<li><a href="#register">Register</a></li>
-</ul>
+<li><a href="contact.html">Contact</a></li>
 
-</nav>
+</ul>
 
 <!-- HERO -->
 
@@ -323,12 +329,26 @@ Sam & Ari Kids Club nurtures confidence, creativity and leadership in children t
 
 <!-- WHY -->
 
-<section style="background:#f6f6f6">
+<section style="
+background:
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.55)),
+url('why-kids-club.jpg') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:120px 60px;
+">
 
-<h2>Why Kids Clubs Matter</h2>
+<h2 style="color:white;">Why Kids Clubs Matter</h2>
 
-<p class="center-text">
-Children in enrichment programs develop stronger social skills, emotional regulation and academic confidence.
+<p style="max-width:900px;margin:auto;line-height:1.9;font-size:1.1rem;">
+
+Children in structured activity programs show stronger emotional regulation,
+improved peer interaction skills, higher academic confidence, and 30% better
+problem-solving adaptability compared to children without enrichment exposure.
+
+Kids clubs create safe, guided environments where play becomes leadership,
+creativity becomes discipline, and fun becomes growth.
+
 </p>
 
 </section>
@@ -348,7 +368,7 @@ Children in enrichment programs develop stronger social skills, emotional regula
 
 <div class="card">
 <h3>Structured Development Classes</h3>
-<p>Movement and coordination sessions for ages 3–10.</p>
+<p>Movement and coordination sessions for ages (3–10).</p>
 </div>
 
 <div class="card">
@@ -432,30 +452,78 @@ Kids Club Membership
 
 <!-- POPUP -->
 
-<div id="popup" class="popup-overlay">
+<div id="holidayPopup" class="popup-overlay">
 
 <div class="popup-box">
 
 <span class="popup-close" onclick="closePopup()">×</span>
 
-<h2>Easter Eggventure 🐣</h2>
+<h2>The Easter Eggventure 🐣</h2>
 
-<p>Easter Sunday & Monday<br>Daily Rate ₦85,000</p>
+<p>
 
-<a class="popup-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform" target="_blank">
-Register
+Join us this Easter for an exciting adventure filled with games,
+creativity and fun activities for kids.
+
+<br><br>
+
+Easter Sunday & Easter Monday
+
+<br><br>
+
+Daily rate: <strong>₦85,000</strong>
+
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScIl_OYlO-cMEwcOk28F9zcIkAFzk7xbZ3kPcYjiaGjf_N_jA/viewform?usp=publish-editor"
+target="_blank"
+class="popup-btn">
+
+Register for The Easter Eggventure →
+
 </a>
 
 </div>
 
 </div>
+  
+<footer class="main-footer">
 
-<footer>
+<div class="footer-grid">
 
-© 2026 Sam & Ari Kids Club
+<div class="footer-column">
+<h3>Contact Us</h3>
+<p>Email: samandarikidsclub@gmail.com</p>
+<p>Phone: +234 803 098 8226</p>
+<p>Open Hours: 9am – 4pm</p>
+<a href="contact.html" class="footer-link">Visit Contact Page →</a>
+</div>
+
+<div class="footer-column">
+<h3>Newsletter</h3>
+<p>Stay updated on camps, events and new programs.</p>
+
+<form class="newsletter-form">
+<input type="email" placeholder="Enter your email" required>
+<button type="submit">Subscribe</button>
+</form>
+</div>
+
+<div class="footer-column">
+<h3>Quick Links</h3>
+<p><a href="about.html">About</a></p>
+<p><a href="gallery.html">Gallery</a></p>
+<p><a href="contact.html">Contact</a></p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Sam & Ari Kids Club. All Rights Reserved.
+</div>
 
 </footer>
-
+  
 <script>
 
 /* HERO SLIDER */
@@ -488,8 +556,11 @@ document.getElementById("popup").classList.add("active")
 }
 
 function closePopup(){
-document.getElementById("popup").classList.remove("active")
-}
+document.getElementById("holidaypopup").classList.remove("active");
+  
+},1500);
+
+});
 
 </script>
 
