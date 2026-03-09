@@ -148,6 +148,27 @@ section{
 padding:90px 60px;
 }
 
+.why-section {
+background-color: #000;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+position: relative;
+}
+
+.why-section::before {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.55));
+pointer-events: none;
+}
+
+.why-section > * {
+position: relative;
+z-index: 1;
+}
+
 h2{
 text-align:center;
 font-size:2.4rem;
@@ -380,7 +401,7 @@ font-size:0.9rem;
 <body>
 
 <nav>
-<img src="logo.png" alt="Sam & Ari Logo">
+<img src="logo.png" alt="Sam & Ari Logo" loading="lazy">
 
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   
@@ -399,19 +420,19 @@ font-size:0.9rem;
 
 <div class="hero">
 
-<div class="slide active" style="background-image:url('hero1.jpg')">
+<div class="slide active" data-bg="hero1.jpg">
 <span>Sam & Ari Kids Club</span>
 </div>
 
-<div class="slide" style="background-image:url('hero2.jpg')">
+<div class="slide" data-bg="hero2.jpg">
 <span>Have Fun</span>
 </div>
 
-<div class="slide" style="background-image:url('hero3.jpg')">
+<div class="slide" data-bg="hero3.jpg">
 <span>Learn</span>
 </div>
 
-<div class="slide" style="background-image:url('hero4.jpg')">
+<div class="slide" data-bg="hero4.jpg">
 <span>Grow</span>
 </div>
 
@@ -433,10 +454,7 @@ Our approach combines leadership building, teamwork, emotional intelligence and 
 
 <!-- WHY -->
 
-<section style="
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.55)),
-url('why-kids-club.jpg') center/cover no-repeat;
+<section class="why-section" data-bg="why-kids-club.jpg" style="
 color:white;
 text-align:center;
 padding:120px 60px;
@@ -628,6 +646,30 @@ Register for The Easter Eggventure →
 
 </footer> 
 <script>
+
+/* IMAGE LAZY LOADING FOR BACKGROUND IMAGES */
+
+const observerOptions = {
+  threshold: 0.1
+};
+
+const imageObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      const bgImage = img.getAttribute('data-bg');
+      if (bgImage) {
+        img.style.backgroundImage = `url('${bgImage}')`;
+        img.removeAttribute('data-bg');
+        imageObserver.unobserve(img);
+      }
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('[data-bg]').forEach(el => {
+  imageObserver.observe(el);
+});
 
 /* HERO SLIDER */
 
